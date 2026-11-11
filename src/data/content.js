@@ -5,6 +5,7 @@ export const LINKS = {
   githubIssues: 'https://github.com/anmoltiwari0712/crossfade.live/issues/new',
   portfolio: 'https://bilkulanmol.vercel.app',
   rawEmail: 'oanmoltiwari7@gmail.com',
+  formspreeId: 'xeagqkdv',
   email: 'mailto:oanmoltiwari7@gmail.com?subject=CrossFade%20v2.0%20%E2%80%94%20Hello!',
 };
 
