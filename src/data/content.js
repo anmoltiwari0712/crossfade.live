@@ -81,7 +81,7 @@ export const STEPS = [
     num: '03',
     color: 'bg-[#ffc862] text-black',
     title: 'Keep the party going',
-    body: "Happens automatically while you listen. You don't touch a thing—just press play and pretend Youutube Music always worked this way.",
+    body: "Happens automatically while you listen. You don't touch a thing. Just press play and pretend Youutube Music always worked this way.",
   },
   {
     num: '04',
@@ -129,11 +129,11 @@ export const PRIVACY_FAQS = [
   },
   {
     q: "What don't we do?",
-    a: 'No telemetry. No tracking scripts. No external API calls. No advertising. No selling your data. Google already knows enough about you—we do not need to help.',
+    a: 'No telemetry. No tracking scripts. No external API calls. No advertising. No selling your data. Google already knows enough about you, and we do not need to help.',
   },
   {
     q: 'Is it really free with zero tracking?',
-    a: 'Yes—free forever, lightweight, and 100% local inside your browser. No account, no subscriptions, no corporate fluff.',
+    a: 'Yes, free forever, lightweight, and 100% local inside your browser. No account, no subscriptions, no corporate fluff.',
   },
 ];
 

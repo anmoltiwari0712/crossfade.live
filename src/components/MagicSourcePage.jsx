@@ -20,7 +20,7 @@ export default function MagicSourcePage({ onBack }) {
           <div className="mx-auto w-56 sm:w-64 aspect-square rounded-2xl overflow-hidden border-2 border-[#ffd2d7]/60 bg-black mb-7 shadow-xl">
             <img
               src="./barney-magic.gif"
-              alt="Barney Stinson performing magic tricks — How I Met Your Mother"
+              alt="Barney Stinson performing magic tricks, How I Met Your Mother"
               className="w-full h-full object-cover"
             />
           </div>
@@ -30,11 +30,11 @@ export default function MagicSourcePage({ onBack }) {
           </blockquote>
 
           <p className="font-mono text-xs sm:text-sm text-[#ffd2d7] mb-5">
-            — Barney Stinson · How I Met Your Mother (S07E24)
+            Barney Stinson · How I Met Your Mother (S07E24)
           </p>
 
           <p className="text-sm sm:text-base text-[#b3b3b3] max-w-lg mx-auto mb-8 leading-relaxed">
-            Nice try, Google product managers. You already have a trillion dollars and an engineering army—go figure out how two songs overlap on your own.
+            Nice try, Google product managers. You already have a trillion dollars and an engineering army. Go figure out how two songs overlap on your own.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3.5">

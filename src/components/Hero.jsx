@@ -29,7 +29,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="px-8 py-4 rounded-full bg-[#ffd2d7] hover:bg-[#ffe5e8] text-black font-bold text-base transition-transform hover:scale-105 shadow-lg shadow-black/20"
           >
-            Fix My Youutube Music — Free
+            Fix My Youutube Music (Free)
           </a>
           <a
             href="#experience"

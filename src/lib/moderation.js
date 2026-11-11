@@ -11,7 +11,7 @@ export const SEED_COMMENTS = [
     author: '@nightdrive_fm',
     vibe: '5s · Equal Power',
     accent: 'pink',
-    text: 'The chorus of Track A stays crisp while Track B creeps underneath—stopped my 2 AM drive playlists from sounding like a glitchy shuffle.',
+    text: 'The chorus of Track A stays crisp while Track B creeps underneath. Stopped my 2 AM drive playlists from sounding like a glitchy shuffle.',
     createdAt: 'Early listener',
   },
   {
@@ -119,7 +119,7 @@ function containsAbuseOrSpam(raw) {
 
   for (const pat of OBFUSCATED_PATTERNS) {
     if (pat.test(text)) {
-      return 'Whoa there — keep the vibes respectful. Abusive language was blocked by the sanity check.';
+      return 'Whoa there, keep the vibes respectful. Abusive language was blocked by the sanity check.';
     }
   }
 
@@ -127,7 +127,7 @@ function containsAbuseOrSpam(raw) {
   for (const term of BLOCKED_WORDS) {
     const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     if (new RegExp(`\\b${escaped}\\b`, 'i').test(normalized)) {
-      return 'Whoa there — keep the vibes respectful. Abusive language was blocked by the sanity check.';
+      return 'Whoa there, keep the vibes respectful. Abusive language was blocked by the sanity check.';
     }
   }
 
@@ -148,7 +148,7 @@ export function moderateComment(authorRaw, textRaw) {
     return { ok: false, reason: 'Please keep comments under 240 characters.' };
   }
   if (/(.)\1{7,}/.test(text)) {
-    return { ok: false, reason: 'Looks like repeated-character spam — try a real note!' };
+    return { ok: false, reason: 'Looks like repeated-character spam. Try a real note!' };
   }
 
   const lettersOrDigits = (text.match(/[a-z0-9]/gi) || []).length;

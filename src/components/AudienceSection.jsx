@@ -88,7 +88,7 @@ export default function AudienceSection() {
             Hear from our audience
           </h2>
           <p className="text-[#b3b3b3] text-base md:text-lg max-w-2xl mx-auto">
-            Did we fix your playlist or make things worse? We’re not a billion-dollar streaming company—we actually want to hear from listeners using this thing. (
+            Did we fix your playlist or make things worse? We’re not a billion-dollar streaming company, we actually want to hear from listeners using this thing. (
             <strong className="text-white">{comments.length}</strong> notes on the wall)
           </p>
         </div>

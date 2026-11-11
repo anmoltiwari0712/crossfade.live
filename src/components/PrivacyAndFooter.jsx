@@ -25,84 +25,83 @@ export default function PrivacyAndFooter({ onOpenSource, onNavigateHome, showBod
         <>
           {/* Spotify-style FAQ / Privacy */}
           <section id="privacy" className="py-16 md:py-20 px-5">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="font-mono text-[11px] font-bold tracking-[0.12em] uppercase text-[#ffd2d7] mb-2.5">
-              We’re here for your music, not your data
-            </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">
-              Your listening history isn’t our business.
-            </h2>
-            <p className="text-[#b3b3b3] text-base">
-              We don’t need to know that you’ve played the same breakup song 47 times this week. We’re not judging. We’re just not collecting it.
-            </p>
-          </div>
+            <div className="max-w-3xl mx-auto">
+              <div className="text-center mb-10">
+                <p className="font-mono text-[11px] font-bold tracking-[0.12em] uppercase text-[#ffd2d7] mb-2.5">
+                  We’re here for your music, not your data
+                </p>
+                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">
+                  Your listening history isn’t our business.
+                </h2>
+                <p className="text-[#b3b3b3] text-base">
+                  We don’t need to know that you’ve played the same breakup song 47 times this week. We’re not judging. We’re just not collecting it.
+                </p>
+              </div>
 
-          <div className="border-t border-white/15">
-            {PRIVACY_FAQS.map((item, idx) => {
-              const isOpen = openIdx === idx;
-              return (
-                <div key={item.q} className="border-b border-white/15">
-                  <button
-                    type="button"
-                    onClick={() => setOpenIdx(isOpen ? -1 : idx)}
-                    className="w-full py-5 px-2 flex items-center justify-between text-left gap-4 hover:bg-white/[0.03] transition-colors cursor-pointer"
-                    aria-expanded={isOpen}
-                  >
-                    <span className="text-base md:text-lg font-bold text-white">{item.q}</span>
-                    <ChevronDown
-                      size={20}
-                      className={`shrink-0 text-[#b3b3b3] transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 text-[#ffd2d7]' : ''
-                      }`}
-                    />
-                  </button>
-                  {isOpen && (
-                    <div className="px-2 pb-5 text-sm md:text-base text-[#b3b3b3] leading-relaxed">
-                      {item.a}
+              <div className="border-t border-white/15">
+                {PRIVACY_FAQS.map((item, idx) => {
+                  const isOpen = openIdx === idx;
+                  return (
+                    <div key={item.q} className="border-b border-white/15">
+                      <button
+                        type="button"
+                        onClick={() => setOpenIdx(isOpen ? -1 : idx)}
+                        className="w-full py-5 px-2 flex items-center justify-between text-left gap-4 hover:bg-white/[0.03] transition-colors cursor-pointer"
+                        aria-expanded={isOpen}
+                      >
+                        <span className="text-base md:text-lg font-bold text-white">{item.q}</span>
+                        <ChevronDown
+                          size={20}
+                          className={`shrink-0 text-[#b3b3b3] transition-transform duration-200 ${isOpen ? 'rotate-180 text-[#ffd2d7]' : ''
+                            }`}
+                        />
+                      </button>
+                      {isOpen && (
+                        <div className="px-2 pb-5 text-sm md:text-base text-[#b3b3b3] leading-relaxed">
+                          {item.a}
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section
-        className="py-16 md:py-20 px-5"
-        style={{
-          background: 'linear-gradient(180deg, #121212 0%, #241926 100%)',
-        }}
-      >
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-[#181818] border border-[#ffd2d7]/30 rounded-2xl p-8 md:p-10 flex flex-col items-center text-center">
-            <p className="font-mono text-[11px] font-bold tracking-[0.12em] uppercase text-[#ffd2d7] mb-2">
-              One last thing, Youutube Music
-            </p>
-            <h2 className="text-2xl md:text-3xl font-extrabold mb-3">
-              You had one job. We did it for you.
-            </h2>
-            <p className="text-[#b3b3b3] text-sm md:text-base max-w-xl mb-6">
-              Spotify figured this out years ago—meanwhile Youutube Music still leaves you staring into the void between songs.
-            </p>
-            <div>
-              <a
-                href={LINKS.cws}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-7 py-3.5 rounded-full bg-[#1ed760] hover:bg-[#3be477] text-black font-bold text-sm transition-transform hover:scale-105"
-              >
-                Add to Chrome — It’s About Time
-              </a>
-              <p className="text-xs text-[#b3b3b3] mt-3">
-                Free. Lightweight. No nonsense. Just better transitions.
-              </p>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+
+          {/* Final CTA */}
+          <section
+            className="py-16 md:py-20 px-5"
+            style={{
+              background: 'linear-gradient(180deg, #121212 0%, #241926 100%)',
+            }}
+          >
+            <div className="max-w-3xl mx-auto">
+              <div className="bg-[#181818] border border-[#ffd2d7]/30 rounded-2xl p-8 md:p-10 flex flex-col items-center text-center">
+                <p className="font-mono text-[11px] font-bold tracking-[0.12em] uppercase text-[#ffd2d7] mb-2">
+                  One last thing, Youutube Music
+                </p>
+                <h2 className="text-2xl md:text-3xl font-extrabold mb-3">
+                  You had one job. We did it for you.
+                </h2>
+                <p className="text-[#b3b3b3] text-sm md:text-base max-w-xl mb-6">
+                  Spotify figured this out years ago. Meanwhile Youutube Music still leaves you staring into the void between songs.
+                </p>
+                <div>
+                  <a
+                    href={LINKS.cws}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-7 py-3.5 rounded-full bg-[#1ed760] hover:bg-[#3be477] text-black font-bold text-sm transition-transform hover:scale-105"
+                  >
+                    Add to Chrome. It’s About Time
+                  </a>
+                  <p className="text-xs text-[#b3b3b3] mt-3">
+                    Free. Lightweight. No nonsense. Just better transitions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
         </>
       )}
 
