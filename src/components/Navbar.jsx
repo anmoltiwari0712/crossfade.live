@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { LINKS } from '../data/content';
 
-export default function Navbar({ onNavigateHome }) {
+export default function Navbar({ onNavigateHome, onOpenComingSoon }) {
   const [open, setOpen] = useState(false);
 
   const navItems = [
@@ -18,13 +18,21 @@ export default function Navbar({ onNavigateHome }) {
     onNavigateHome?.(href);
   }
 
+  function handleComingSoonClick(e) {
+    setOpen(false);
+    if (onOpenComingSoon) {
+      e.preventDefault();
+      onOpenComingSoon();
+    }
+  }
+
   return (
     <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-white/10">
-      <nav className="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between" aria-label="Primary">
+      <nav className="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] md:gap-4" aria-label="Primary">
         <a
           href="#top"
           onClick={() => handleLinkClick('#top')}
-          className="flex items-center gap-2.5 group"
+          className="flex items-center gap-2.5 group justify-self-start"
         >
           <span className="w-9 h-9 rounded-full bg-white p-1 flex items-center justify-center transition-transform group-hover:scale-105">
             <img src="./icon128.png" alt="" className="w-full h-full rounded-full" />
@@ -35,8 +43,8 @@ export default function Navbar({ onNavigateHome }) {
           </span>
         </a>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-7 text-sm font-bold">
+        {/* Centered Desktop links */}
+        <div className="hidden md:flex items-center justify-center gap-6 lg:gap-7 text-sm font-bold whitespace-nowrap">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -47,7 +55,10 @@ export default function Navbar({ onNavigateHome }) {
               {item.label}
             </a>
           ))}
-          <span className="text-white/30" aria-hidden="true">|</span>
+        </div>
+
+        {/* Right Desktop Actions */}
+        <div className="hidden md:flex items-center justify-self-end gap-5 text-sm font-bold whitespace-nowrap">
           <a
             href={LINKS.portfolio}
             target="_blank"
@@ -58,8 +69,7 @@ export default function Navbar({ onNavigateHome }) {
           </a>
           <a
             href={LINKS.cws}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={handleComingSoonClick}
             className="px-5 py-2.5 rounded-full bg-[#1ed760] hover:bg-[#3be477] text-black font-bold transition-transform hover:scale-105"
           >
             Add to Chrome
@@ -101,8 +111,7 @@ export default function Navbar({ onNavigateHome }) {
           </a>
           <a
             href={LINKS.cws}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={handleComingSoonClick}
             className="mt-1 text-center px-5 py-3 rounded-full bg-[#1ed760] text-black font-bold"
           >
             Add to Chrome

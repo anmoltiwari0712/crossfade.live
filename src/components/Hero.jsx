@@ -1,6 +1,6 @@
 import { LINKS } from '../data/content';
 
-export default function Hero() {
+export default function Hero({ onOpenComingSoon }) {
   return (
     <section
       className="relative overflow-hidden pt-20 pb-24 md:pt-24 md:pb-28 text-center"
@@ -25,8 +25,12 @@ export default function Hero() {
         <div className="flex flex-wrap items-center justify-center gap-3.5 mb-7">
           <a
             href={LINKS.cws}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={(e) => {
+              if (onOpenComingSoon) {
+                e.preventDefault();
+                onOpenComingSoon();
+              }
+            }}
             className="px-8 py-4 rounded-full bg-[#ffd2d7] hover:bg-[#ffe5e8] text-black font-bold text-base transition-transform hover:scale-105 shadow-lg shadow-black/20"
           >
             Fix My Youutube Music (Free)

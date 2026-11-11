@@ -22,7 +22,7 @@ const THEME_STYLES = {
   },
 };
 
-export default function PresetCards({ onSelectPreset }) {
+export default function PresetCards({ onSelectPreset, onOpenComingSoon }) {
   return (
     <section id="presets" className="py-16 md:py-20 px-5">
       <div className="max-w-6xl mx-auto">
@@ -70,8 +70,12 @@ export default function PresetCards({ onSelectPreset }) {
                 {card.href ? (
                   <a
                     href={card.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    onClick={(e) => {
+                      if (onOpenComingSoon) {
+                        e.preventDefault();
+                        onOpenComingSoon();
+                      }
+                    }}
                     className={`w-full text-center py-3.5 px-5 rounded-full font-bold text-sm transition-transform hover:scale-[1.02] ${st.cta}`}
                   >
                     {card.ctaLabel}

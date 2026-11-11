@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
-import { Bug, CheckCircle2 } from 'lucide-react';
+import { Bug, CheckCircle2, ChevronDown } from 'lucide-react';
 import { LINKS } from '../data/content';
 import { containsAbuseOrSpam } from '../lib/moderation';
 
@@ -115,19 +115,25 @@ export default function BugReportSection() {
                 <label htmlFor="bug-category" className="block text-xs font-bold text-white mb-1.5">
                   What broke?
                 </label>
-                <select
-                  id="bug-category"
-                  name="category"
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                  className="w-full bg-[#121212] border border-white/20 focus:border-[#ffd2d7] rounded-xl px-3.5 py-2.5 text-sm text-white outline-none"
-                >
-                  {BUG_CATEGORIES.map((item) => (
-                    <option key={item} value={item}>
-                      {item}
-                    </option>
-                  ))}
-                </select>
+                <div className="relative">
+                  <select
+                    id="bug-category"
+                    name="category"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    className="w-full h-11 appearance-none bg-[#121212] border border-white/20 focus:border-[#ffd2d7] rounded-xl pl-3.5 pr-10 text-sm text-white outline-none cursor-pointer transition-colors"
+                  >
+                    {BUG_CATEGORIES.map((item) => (
+                      <option key={item} value={item} className="bg-[#121212] text-white">
+                        {item}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown
+                    size={16}
+                    className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-[#b3b3b3]"
+                  />
+                </div>
                 <ValidationError
                   prefix="Category"
                   field="category"
@@ -148,7 +154,7 @@ export default function BugReportSection() {
                   value={setup}
                   onChange={(e) => setSetup(e.target.value)}
                   placeholder="e.g. Chrome on Mac, 5s Equal Power"
-                  className="w-full bg-[#121212] border border-white/20 focus:border-[#ffd2d7] rounded-xl px-3.5 py-2.5 text-sm text-white outline-none"
+                  className="w-full h-11 bg-[#121212] border border-white/20 focus:border-[#ffd2d7] rounded-xl px-3.5 text-sm text-white placeholder:text-[#727272] outline-none transition-colors"
                 />
                 <ValidationError
                   prefix="Setup"
@@ -171,7 +177,7 @@ export default function BugReportSection() {
                 value={contact}
                 onChange={(e) => setContact(e.target.value)}
                 placeholder="So we can reply when it's fixed"
-                className="w-full bg-[#121212] border border-white/20 focus:border-[#ffd2d7] rounded-xl px-3.5 py-2.5 text-sm text-white outline-none"
+                className="w-full h-11 bg-[#121212] border border-white/20 focus:border-[#ffd2d7] rounded-xl px-3.5 text-sm text-white placeholder:text-[#727272] outline-none transition-colors"
               />
               <ValidationError
                 prefix="Contact"
@@ -197,7 +203,7 @@ export default function BugReportSection() {
                 value={details}
                 onChange={(e) => setDetails(e.target.value)}
                 placeholder="Tell us what track transition broke, whether shuffle/autoplay was on, or any console errors you noticed..."
-                className="w-full bg-[#121212] border border-white/20 focus:border-[#ffd2d7] rounded-xl px-3.5 py-2.5 text-sm text-white outline-none resize-y"
+                className="w-full bg-[#121212] border border-white/20 focus:border-[#ffd2d7] rounded-xl p-3.5 text-sm text-white placeholder:text-[#727272] outline-none resize-y transition-colors"
                 required
               />
               <ValidationError
