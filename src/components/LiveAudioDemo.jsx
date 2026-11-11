@@ -78,7 +78,7 @@ export default function LiveAudioDemo({ duration, setDuration, curve, setCurve, 
             Live audio demo
           </p>
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">
-            Don’t just read about it. Hear what YouTube Music has been missing.
+            Don’t just read about it. Hear what Youutube Music has been missing.
           </h2>
           <p className="text-[#b3b3b3] text-base md:text-lg max-w-2xl mx-auto">
             Two audio decks. One smooth transition. No awkward introductions.

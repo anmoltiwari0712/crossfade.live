@@ -2,6 +2,7 @@ export const LINKS = {
   cws: 'https://chromewebstore.google.com/detail/efiacbdpmdpecdbkjfpoblkicbnemgno',
   githubProfile: 'https://github.com/anmoltiwari0712',
   githubRepo: 'https://github.com/anmoltiwari0712/CrossFade',
+  portfolio: 'https://bilkulanmol.vercel.app',
   email: 'mailto:oanmoltiwari7@gmail.com?subject=CrossFade%20v2.0%20%E2%80%94%20Hello!',
 };
 
@@ -42,7 +43,7 @@ export const PRESET_CARDS = [
       'Keeps Track A vocals crisp while Track B glides in.',
       'Zero mic glitch between tracks.',
     ],
-    ctaLabel: 'Fix My YouTube Music',
+    ctaLabel: 'Fix My Youutube Music',
     href: LINKS.cws,
   },
   {
@@ -80,7 +81,7 @@ export const STEPS = [
     num: '03',
     color: 'bg-[#ffc862] text-black',
     title: 'Keep the party going',
-    body: "Happens automatically while you listen. You don't touch a thing—just press play and pretend YouTube Music always worked this way.",
+    body: "Happens automatically while you listen. You don't touch a thing—just press play and pretend Youutube Music always worked this way.",
   },
   {
     num: '04',
@@ -100,7 +101,7 @@ export const PERSONAS = [
   {
     title: 'The late-night drivers',
     accent: 'border-t-[#c4b1d4]',
-    body: "It's 2 AM. The road is empty. The playlist is perfect. And then YouTube Music decides everyone needs a moment of silence.",
+    body: "It's 2 AM. The road is empty. The playlist is perfect. And then Youutube Music decides everyone needs a moment of silence.",
     punch: 'Not tonight.',
   },
   {
@@ -123,7 +124,7 @@ export const PRIVACY_FAQS = [
     a: 'Only your three playback preferences: enabled/disabled state, crossfade duration (1–12s), and selected fade curve (Equal Power or Linear), saved locally in Chrome storage.',
   },
   {
-    q: 'Why does CrossFade access YouTube Music?',
+    q: 'Why does CrossFade access Youutube Music?',
     a: 'Strictly to attach the dual-deck Web Audio crossfade engine to playback tabs and display its live status inside the extension popup. Zero other websites are ever read.',
   },
   {

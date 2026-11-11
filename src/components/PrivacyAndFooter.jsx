@@ -69,26 +69,25 @@ export default function PrivacyAndFooter({ onOpenSource, onNavigateHome, showBod
         </div>
       </section>
 
-      {/* Final CTA + Developer */}
+      {/* Final CTA */}
       <section
-        id="developer"
         className="py-16 md:py-20 px-5"
         style={{
           background: 'linear-gradient(180deg, #121212 0%, #241926 100%)',
         }}
       >
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-          <div className="bg-[#181818] border border-[#ffd2d7]/30 rounded-2xl p-8 flex flex-col">
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-[#181818] border border-[#ffd2d7]/30 rounded-2xl p-8 md:p-10 flex flex-col items-center text-center">
             <p className="font-mono text-[11px] font-bold tracking-[0.12em] uppercase text-[#ffd2d7] mb-2">
-              One last thing, YouTube Music
+              One last thing, Youutube Music
             </p>
             <h2 className="text-2xl md:text-3xl font-extrabold mb-3">
               You had one job. We did it for you.
             </h2>
-            <p className="text-[#b3b3b3] text-sm md:text-base mb-4">
+            <p className="text-[#b3b3b3] text-sm md:text-base max-w-xl mb-6">
               Your songs deserve better than awkward silence. Your playlists deserve better than abrupt endings. Install CrossFade and give your music the transitions it deserves.
             </p>
-            <div className="mt-auto pt-4">
+            <div>
               <a
                 href={LINKS.cws}
                 target="_blank"
@@ -100,44 +99,6 @@ export default function PrivacyAndFooter({ onOpenSource, onNavigateHome, showBod
               <p className="text-xs text-[#b3b3b3] mt-3">
                 Free. Lightweight. No nonsense. Just better transitions.
               </p>
-            </div>
-          </div>
-
-          <div className="bg-[#181818] border border-white/10 rounded-2xl p-8 flex flex-col">
-            <p className="font-mono text-[11px] font-bold tracking-[0.12em] uppercase text-[#c4b1d4] mb-2">
-              The person who couldn’t let it go
-            </p>
-            <h3 className="text-2xl font-extrabold mb-3">
-              Built by Anmol. Powered by playlists and mild frustration.
-            </h3>
-            <p className="text-[#b3b3b3] text-sm md:text-base mb-3">
-              I’m a software engineer who occasionally gets annoyed by tiny things and decides to build an entire product around fixing them. Why are two songs still not allowed to overlap?
-            </p>
-            <p className="text-[#b3b3b3] text-sm md:text-base mb-6">
-              If you like what I’ve built, say hello. If something breaks, definitely say hello.
-            </p>
-            <div className="mt-auto flex flex-wrap gap-3">
-              <a
-                href={LINKS.githubProfile}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full border border-white/35 hover:border-white text-white font-bold text-sm transition-transform hover:scale-105"
-              >
-                My GitHub
-              </a>
-              <a
-                href={LINKS.email}
-                className="px-6 py-3 rounded-full bg-[#ffd2d7] hover:bg-[#ffe5e8] text-black font-bold text-sm transition-transform hover:scale-105"
-              >
-                Send Me an Email
-              </a>
-              <a
-                href="#/source"
-                onClick={handleSourceClick}
-                className="px-6 py-3 rounded-full border border-white/35 hover:border-white text-white font-bold text-sm transition-transform hover:scale-105"
-              >
-                View Source Code on GitHub →
-              </a>
             </div>
           </div>
         </div>
@@ -169,8 +130,9 @@ export default function PrivacyAndFooter({ onOpenSource, onNavigateHome, showBod
               <a href="#difference" onClick={handleSectionClick('#difference')} className="text-white hover:text-[#1ed760]">Difference Table</a>
             </div>
 
-            <div className="flex flex-col gap-2.5 text-sm">
+            <div id="developer" className="flex flex-col gap-2.5 text-sm">
               <h4 className="font-mono text-[11px] uppercase tracking-wider text-[#b3b3b3] mb-1">Developer</h4>
+              <a href={LINKS.portfolio} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#1ed760]">Portfolio (bilkulanmol.vercel.app)</a>
               <a href={LINKS.githubProfile} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#1ed760]">GitHub (@anmoltiwari0712)</a>
               <a href="#/source" onClick={handleSourceClick} className="text-white hover:text-[#1ed760]">Source Code</a>
               <a href={LINKS.email} className="text-white hover:text-[#1ed760]">Contact Anmol</a>

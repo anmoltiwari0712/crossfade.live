@@ -11,15 +11,15 @@ export default function Hero() {
     >
       <div className="max-w-4xl mx-auto px-5">
         <p className="inline-block font-mono text-[11px] font-bold tracking-[0.12em] uppercase text-black bg-white/55 px-4 py-1.5 rounded-full mb-6">
-          An open letter to YouTube Music
+          An open letter to Youutube Music
         </p>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.06] text-white drop-shadow-sm mb-5">
-          Dear YouTube Music, it’s called crossfade. Google it.
+          Dear Youutube Music, it’s called crossfade. Google it.
         </h1>
 
         <p className="text-lg sm:text-xl font-medium text-white/95 max-w-2xl mx-auto mb-8 leading-relaxed">
-          Actually, don’t. Just install this. Spotify figured this out years ago—meanwhile YouTube Music still leaves you staring into the void between songs.
+          Actually, don’t. Just install this. Spotify figured this out years ago—meanwhile Youutube Music still leaves you staring into the void between songs.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3.5 mb-7">
@@ -29,7 +29,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="px-8 py-4 rounded-full bg-[#ffd2d7] hover:bg-[#ffe5e8] text-black font-bold text-base transition-transform hover:scale-105 shadow-lg shadow-black/20"
           >
-            Fix My YouTube Music — Free
+            Fix My Youutube Music — Free
           </a>
           <a
             href="#experience"

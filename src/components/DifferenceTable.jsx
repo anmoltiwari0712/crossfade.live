@@ -17,7 +17,7 @@ export default function DifferenceTable() {
           </p>
         </div>
 
-        <div className="w-full" role="table" aria-label="YouTube Music default vs CrossFade v2.0">
+        <div className="w-full" role="table" aria-label="Youutube Music default vs CrossFade v2.0">
           <div
             className="grid grid-cols-[1.45fr_0.75fr_0.75fr] items-end border-b border-white pb-4 text-sm font-bold"
             role="row"
@@ -26,7 +26,7 @@ export default function DifferenceTable() {
               What you get
             </div>
             <div className="px-2 text-center text-[#b3b3b3]" role="columnheader">
-              YouTube Music
+              Youutube Music
               <span className="block text-[11px] font-normal">Default</span>
             </div>
             <div
