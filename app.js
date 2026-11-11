@@ -1,5 +1,5 @@
 /**
- * CrossFade Launch Site — Interactive Audio Curve Demo,
+ * CrossFade v2.0 Launch Site — Interactive Audio Curve & Gap Demo,
  * Auto Infinite-Scroll Audience Carousel & Abusive Comment Sanity Check.
  */
 (function (root) {
@@ -12,42 +12,42 @@
       id: 'seed-1',
       author: '@nightdrive_fm',
       vibe: '5s · Equal Power',
-      text: 'The chorus of Track A stays crisp while Track B creeps underneath—stopped my late-night drive playlists from sounding like a glitchy shuffle.',
+      text: 'The chorus of Track A stays crisp while Track B creeps underneath—stopped my 2 AM drive playlists from sounding like a glitchy shuffle.',
       createdAt: 'Early listener',
     },
     {
       id: 'seed-2',
       author: '@rhythm_arjun',
       vibe: '7s · Equal Power',
-      text: 'Tested it back-to-back across 10+ songs. Zero silence, zero weird mic pop on handoff. Honestly how streaming should work out of the box.',
+      text: 'Tested it back-to-back across 10+ songs. Zero silence, zero weird mic pop on handoff. Honestly how it should work out of the box.',
       createdAt: 'Early listener',
     },
     {
       id: 'seed-3',
       author: 'Maya K.',
       vibe: '5s · Equal Power',
-      text: 'Love that it runs completely locally with no sketchy permissions. Opened UTube Music, toggled it on once, and forgot it was an extension.',
+      text: 'Love that it runs 100% locally with zero tracking. Opened my playlist, toggled it on once, and forgot it was an extension.',
       createdAt: 'Early listener',
     },
     {
       id: 'seed-4',
       author: '@bassline_kabir',
       vibe: '6s · Equal Power',
-      text: 'Wait until a soft outro vocal blends straight into an upbeat bass drop. Pure goosebumps on headphones.',
+      text: 'Wait until a soft outro vocal blends straight into an upbeat bass drop. Saved my gym PR set.',
       createdAt: 'Early listener',
     },
     {
       id: 'seed-5',
       author: '@lofi_study_club',
       vibe: '10s · Equal Power',
-      text: '10-second overlap for chillhop playlists turns the whole browser tab into one continuous mixtape.',
+      text: '10-second overlap for midnight study playlists turns the whole browser tab into one continuous mixtape.',
       createdAt: 'Early listener',
     },
     {
       id: 'seed-6',
       author: 'Sana R.',
-      vibe: '4s · Linear',
-      text: 'Super clean dark popup UI and works inside the installed desktop web app too. Huge upgrade for workout mixes.',
+      vibe: '2s · Linear',
+      text: 'Super clean dark popup UI and works inside the installed web app too. Finally no awkward gaps between bangers.',
       createdAt: 'Early listener',
     },
   ];
@@ -97,16 +97,13 @@
       '5': 's',
       '7': 't',
     };
-    const replaced = String(input || '')
+    return String(input || '')
       .toLowerCase()
       .replace(/[@401!3$57]/g, (ch) => leetMap[ch] || ch)
-      // Collapse 3+ repeated letters down to 1 ("fuuuuck" -> "fuck", "shiiiit" -> "shit")
       .replace(/([a-z])\1{2,}/g, '$1')
-      // Replace non-alphanumeric separators with spaces to keep word boundaries clean
       .replace(/[^a-z0-9\s]/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
-    return replaced;
   }
 
   function containsAbuseOrSpam(raw) {
@@ -167,14 +164,9 @@
       return { ok: false, reason: textViolation };
     }
 
-    return {
-      ok: true,
-      author,
-      text,
-    };
+    return { ok: true, author, text };
   }
 
-  // Export for Node unit tests when loaded via require()
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = { moderateComment, normalizeForCheck };
   }
@@ -189,21 +181,24 @@
   const btnEqualPower = document.getElementById('btnEqualPower');
   const btnLinear = document.getElementById('btnLinear');
   const btnAudition = document.getElementById('btnAudition');
+  const btnAuditionGap = document.getElementById('btnAuditionGap');
   const demoLineA = document.getElementById('demoLineA');
   const demoLineB = document.getElementById('demoLineB');
   const demoAreaA = document.getElementById('demoAreaA');
   const demoAreaB = document.getElementById('demoAreaB');
   const demoPlayhead = document.getElementById('demoPlayhead');
   const demoState = document.getElementById('demoState');
-  const demoLed = document.getElementById('demoLed');
   const demoGainReadout = document.getElementById('demoGainReadout');
 
   let activeCurve = 'equalpower';
-  let activeDuration = 5;
+  let activeDuration = 2;
   let audioCtx = null;
   let stopSynthFn = null;
 
-  // Matches CrossFade's real engine.js gain curve math
+  function formatDurationLabel(sec) {
+    return sec === 1 ? '1 second' : `${sec} seconds`;
+  }
+
   function computeGains(p, curve) {
     const clamped = Math.max(0, Math.min(1, p));
     if (curve === 'linear') {
@@ -212,10 +207,7 @@
     const split = 0.82;
     if (clamped <= split) {
       const t = clamped / split;
-      return {
-        a: 1.0 - 0.40 * t,
-        b: 0.48 * t,
-      };
+      return { a: 1.0 - 0.40 * t, b: 0.48 * t };
     }
     const ht = (clamped - split) / (1 - split);
     return {
@@ -226,7 +218,7 @@
 
   function renderDemoSVG() {
     const W = 360;
-    const H = 110;
+    const H = 100;
     const padY = 10;
     const steps = 60;
     const ptsA = [];
@@ -257,114 +249,155 @@
     renderDemoSVG();
   }
 
-  function stopAudition() {
+  function ensureAudioContext() {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return null;
+    if (!audioCtx) audioCtx = new AudioCtx();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    return audioCtx;
+  }
+
+  function spawnChord(ctx, freqs, type, targetGain) {
+    return freqs.map((f) => {
+      const osc = ctx.createOscillator();
+      osc.type = type;
+      osc.frequency.value = f;
+      osc.connect(targetGain);
+      osc.start();
+      return osc;
+    });
+  }
+
+  function stopAnyAudio() {
     if (stopSynthFn) {
       stopSynthFn();
       stopSynthFn = null;
     }
   }
 
-  function startAudition() {
+  function playGapDemo() {
     if (stopSynthFn) {
-      stopAudition();
-      return;
+      const wasGap = btnAuditionGap.dataset.playing === '1';
+      stopAnyAudio();
+      if (wasGap) return;
     }
 
-    const AudioCtx = window.AudioContext || window.webkitAudioContext;
-    if (!AudioCtx) {
-      demoState.textContent = 'Audio unsupported';
-      return;
-    }
+    const ctx = ensureAudioContext();
+    if (!ctx) return;
 
-    if (!audioCtx) {
-      audioCtx = new AudioCtx();
-    }
-    if (audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-
-    const master = audioCtx.createGain();
+    const master = ctx.createGain();
     master.gain.value = 0.22;
-    master.connect(audioCtx.destination);
+    master.connect(ctx.destination);
 
-    const gainA = audioCtx.createGain();
-    const gainB = audioCtx.createGain();
+    const gainA = ctx.createGain();
+    const gainB = ctx.createGain();
     gainA.connect(master);
     gainB.connect(master);
 
-    // Warm chord pad for Deck A (Fmaj7 vibe)
-    const freqsA = [174.61, 220.0, 261.63, 329.63];
-    const oscA = freqsA.map((f) => {
-      const osc = audioCtx.createOscillator();
-      osc.type = 'triangle';
-      osc.frequency.value = f;
-      osc.connect(gainA);
-      osc.start();
-      return osc;
-    });
+    const oscA = spawnChord(ctx, [174.61, 220.0, 261.63, 329.63], 'triangle', gainA);
+    const oscB = spawnChord(ctx, [196.0, 246.94, 293.66, 392.0], 'sine', gainB);
 
-    // Brighter chord pad for Song B (G6/Am9 lift)
-    const freqsB = [196.0, 246.94, 293.66, 392.0];
-    const oscB = freqsB.map((f) => {
-      const osc = audioCtx.createOscillator();
-      osc.type = 'sine';
-      osc.frequency.value = f;
-      osc.connect(gainB);
-      osc.start();
-      return osc;
-    });
+    gainA.gain.value = 1;
+    gainB.gain.value = 0;
+
+    btnAuditionGap.dataset.playing = '1';
+    btnAuditionGap.textContent = '■ Stop Awkward Gap Demo';
+    demoState.textContent = 'Playing Before';
+
+    const t1 = setTimeout(() => {
+      gainA.gain.setTargetAtTime(0, ctx.currentTime, 0.01);
+      demoState.textContent = 'Dead Silence…';
+    }, 1000);
+    const t2 = setTimeout(() => {
+      gainB.gain.setTargetAtTime(1, ctx.currentTime, 0.01);
+      demoState.textContent = 'Song B Starts Late';
+    }, 2400);
+    const t3 = setTimeout(() => {
+      stopAnyAudio();
+    }, 3800);
+
+    stopSynthFn = () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      [...oscA, ...oscB].forEach((o) => {
+        try { o.stop(); o.disconnect(); } catch (_) {}
+      });
+      try { gainA.disconnect(); gainB.disconnect(); master.disconnect(); } catch (_) {}
+      btnAuditionGap.dataset.playing = '0';
+      btnAuditionGap.textContent = '▶ Hear the Awkward Gap (Before)';
+      demoState.textContent = 'Ready';
+    };
+  }
+
+  function playCrossfadeDemo() {
+    if (stopSynthFn) {
+      const wasMix = btnAudition.dataset.playing === '1';
+      stopAnyAudio();
+      if (wasMix) return;
+    }
+
+    const ctx = ensureAudioContext();
+    if (!ctx) return;
+
+    const master = ctx.createGain();
+    master.gain.value = 0.22;
+    master.connect(ctx.destination);
+
+    const gainA = ctx.createGain();
+    const gainB = ctx.createGain();
+    gainA.connect(master);
+    gainB.connect(master);
+
+    const oscA = spawnChord(ctx, [174.61, 220.0, 261.63, 329.63], 'triangle', gainA);
+    const oscB = spawnChord(ctx, [196.0, 246.94, 293.66, 392.0], 'sine', gainB);
 
     const durationMs = activeDuration * 1000;
     const startTs = performance.now();
     let rafId = 0;
+    let endTimer = 0;
 
-    btnAudition.textContent = '■ Stop Audition';
-    demoState.textContent = `Mixing (${activeDuration}s)`;
-    demoLed.classList.add('playing');
+    btnAudition.dataset.playing = '1';
+    btnAudition.textContent = '■ Stop Demo';
+    demoState.textContent = `Crossfading (${activeDuration}s)`;
     demoPlayhead.setAttribute('opacity', '1');
 
-    function cleanup() {
+    const cleanup = () => {
       cancelAnimationFrame(rafId);
+      clearTimeout(endTimer);
       [...oscA, ...oscB].forEach((o) => {
-        try {
-          o.stop();
-          o.disconnect();
-        } catch (_) {}
+        try { o.stop(); o.disconnect(); } catch (_) {}
       });
-      try {
-        gainA.disconnect();
-        gainB.disconnect();
-        master.disconnect();
-      } catch (_) {}
-      btnAudition.textContent = '▶ Audition Live Synth Mix';
+      try { gainA.disconnect(); gainB.disconnect(); master.disconnect(); } catch (_) {}
+      btnAudition.dataset.playing = '0';
+      btnAudition.textContent = '▶ Play the Demo';
       demoState.textContent = 'Ready';
-      demoLed.classList.remove('playing');
       demoPlayhead.setAttribute('opacity', '0');
       demoGainReadout.textContent =
-        'Deck A: 100% · Main Deck B: 0% · Synthesized locally with Web Audio API';
+        'Locally synthesized audio demo. No actual songs were harmed in the making of this demonstration.';
       stopSynthFn = null;
-    }
+    };
 
     stopSynthFn = cleanup;
 
     function tick(now) {
       const p = Math.min(1, (now - startTs) / durationMs);
       const { a, b } = computeGains(p, activeCurve);
-      gainA.gain.setTargetAtTime(a, audioCtx.currentTime, 0.015);
-      gainB.gain.setTargetAtTime(b, audioCtx.currentTime, 0.015);
+      gainA.gain.setTargetAtTime(a, ctx.currentTime, 0.015);
+      gainB.gain.setTargetAtTime(b, ctx.currentTime, 0.015);
 
       const x = (p * 360).toFixed(1);
       demoPlayhead.setAttribute('x1', x);
       demoPlayhead.setAttribute('x2', x);
       demoGainReadout.textContent =
-        `Deck A: ${Math.round(a * 100)}% · Main Deck B: ${Math.round(b * 100)}% · Overlap ${Math.round(p * 100)}%`;
+        `Song A: ${Math.round(a * 100)}% · Song B: ${Math.round(b * 100)}% · Smooth Overlap ${Math.round(p * 100)}%`;
 
       if (p < 1) {
         rafId = requestAnimationFrame(tick);
       } else {
-        setTimeout(() => {
+        endTimer = setTimeout(() => {
           if (stopSynthFn === cleanup) cleanup();
-        }, 350);
+        }, 400);
       }
     }
 
@@ -373,11 +406,12 @@
 
   demoDuration.addEventListener('input', () => {
     activeDuration = Number(demoDuration.value);
-    demoDurationLabel.textContent = `${activeDuration}s`;
+    demoDurationLabel.textContent = formatDurationLabel(activeDuration);
   });
   btnEqualPower.addEventListener('click', () => setCurveMode('equalpower'));
   btnLinear.addEventListener('click', () => setCurveMode('linear'));
-  btnAudition.addEventListener('click', startAudition);
+  btnAudition.addEventListener('click', playCrossfadeDemo);
+  btnAuditionGap.addEventListener('click', playGapDemo);
   renderDemoSVG();
 
   // ---------------- Audience Infinite Carousel + Moderation ----------------
@@ -397,7 +431,6 @@
       if (raw) {
         const parsed = JSON.parse(raw);
         if (Array.isArray(parsed)) {
-          // Run sanity check on stored entries too so abusive content never survives
           saved = parsed.filter((item) => {
             if (!item || typeof item.text !== 'string') return false;
             return moderateComment(item.author, item.text).ok;
@@ -413,9 +446,7 @@
   function saveUserComments(userComments) {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(userComments.slice(0, 25)));
-    } catch (_) {
-      // Ignore storage quota errors cleanly
-    }
+    } catch (_) {}
   }
 
   function createCommentCard(item, isNew) {
@@ -467,13 +498,11 @@
     marqueeTrack.textContent = '';
     commentCount.textContent = String(comments.length);
 
-    // Clone list twice so translate3d(-50%, 0, 0) loops seamlessly without gaps
     const doubled = [...comments, ...comments];
     for (const item of doubled) {
       marqueeTrack.appendChild(createCommentCard(item, item.id === highlightId));
     }
 
-    // Scale scroll duration gently with number of comments (~6s per card)
     const durationSec = Math.max(24, comments.length * 6);
     marqueeTrack.style.setProperty('--marquee-duration', `${durationSec}s`);
   }
@@ -515,6 +544,6 @@
     commentInput.value = '';
     charCounter.textContent = '0 / 240';
     formFeedback.className = 'form-feedback success';
-    formFeedback.textContent = '✓ Posted! Your vibe is now gliding across the audience carousel.';
+    formFeedback.textContent = '✓ Posted! Your feedback is now scrolling across the audience wall.';
   });
 })(typeof window !== 'undefined' ? window : globalThis);
