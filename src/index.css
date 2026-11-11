@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+  }
+
+  code,
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: marqueeScroll var(--marquee-duration, 38s) linear infinite;
+}
+
+.marquee-wrapper:hover .animate-marquee,
+.marquee-wrapper:focus-within .animate-marquee {
+  animation-play-state: paused;
+}
+
+@keyframes eqBar {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.eq-bar-1 {
+  animation: eqBar 0.7s ease-in-out infinite;
+}
+.eq-bar-2 {
+  animation: eqBar 0.55s ease-in-out 0.15s infinite;
+}
+.eq-bar-3 {
+  animation: eqBar 0.8s ease-in-out 0.3s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .eq-bar-1,
+  .eq-bar-2,
+  .eq-bar-3 {
+    animation: none;
+  }
+}
