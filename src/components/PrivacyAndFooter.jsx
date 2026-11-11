@@ -85,7 +85,7 @@ export default function PrivacyAndFooter({ onOpenSource, onNavigateHome, showBod
               You had one job. We did it for you.
             </h2>
             <p className="text-[#b3b3b3] text-sm md:text-base max-w-xl mb-6">
-              Your songs deserve better than awkward silence. Your playlists deserve better than abrupt endings. Install CrossFade and give your music the transitions it deserves.
+              Spotify figured this out years ago—meanwhile Youutube Music still leaves you staring into the void between songs.
             </p>
             <div>
               <a

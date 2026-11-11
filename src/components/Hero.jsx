@@ -19,7 +19,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-lg sm:text-xl font-medium text-white/95 max-w-2xl mx-auto mb-8 leading-relaxed">
-          Actually, don’t. Just install this. Spotify figured this out years ago—meanwhile Youutube Music still leaves you staring into the void between songs.
+          Actually, don’t. Just install this.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3.5 mb-7">
