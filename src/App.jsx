@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import DifferenceTable from './components/DifferenceTable';
 import LiveAudioDemo from './components/LiveAudioDemo';
 import PresetCards from './components/PresetCards';
-import AudienceSection from './components/AudienceSection';
+import BugReportSection from './components/BugReportSection';
 import PrivacyAndFooter from './components/PrivacyAndFooter';
 import MagicSourcePage from './components/MagicSourcePage';
 
@@ -71,7 +71,7 @@ export default function App() {
               onOpenSource={handleOpenSource}
             />
             <PresetCards onSelectPreset={handleSelectPreset} />
-            <AudienceSection />
+            <BugReportSection />
           </>
         )}
         <PrivacyAndFooter

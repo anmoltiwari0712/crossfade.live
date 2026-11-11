@@ -9,7 +9,7 @@ export default function Navbar({ onNavigateHome }) {
     { label: 'Difference', href: '#difference' },
     { label: 'Live Demo', href: '#experience' },
     { label: 'Presets', href: '#presets' },
-    { label: 'Audience', href: '#audience' },
+    { label: 'Report Bug', href: '#report' },
     { label: 'Privacy', href: '#privacy' },
   ];
 
@@ -49,8 +49,9 @@ export default function Navbar({ onNavigateHome }) {
           ))}
           <span className="text-white/30" aria-hidden="true">|</span>
           <a
-            href="#developer"
-            onClick={() => handleLinkClick('#developer')}
+            href={LINKS.portfolio}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[#b3b3b3] hover:text-white transition-colors"
           >
             Developer
@@ -90,8 +91,10 @@ export default function Navbar({ onNavigateHome }) {
             </a>
           ))}
           <a
-            href="#developer"
-            onClick={() => handleLinkClick('#developer')}
+            href={LINKS.portfolio}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
             className="text-[#b3b3b3] hover:text-white"
           >
             Developer

@@ -140,7 +140,7 @@ export default function PrivacyAndFooter({ onOpenSource, onNavigateHome, showBod
             <div className="flex flex-col gap-2.5 text-sm">
               <h4 className="font-mono text-[11px] uppercase tracking-wider text-[#b3b3b3] mb-1">Trust</h4>
               <a href="#privacy" onClick={handleSectionClick('#privacy')} className="text-white hover:text-[#1ed760]">Privacy Promise</a>
-              <a href="#audience" onClick={handleSectionClick('#audience')} className="text-white hover:text-[#1ed760]">Audience Feedback</a>
+              <a href="#report" onClick={handleSectionClick('#report')} className="text-white hover:text-[#1ed760]">Report a Bug</a>
             </div>
           </div>
 

@@ -109,12 +109,12 @@ export function normalizeForCheck(input) {
     .trim();
 }
 
-function containsAbuseOrSpam(raw) {
+export function containsAbuseOrSpam(raw) {
   const text = String(raw || '').trim();
   if (!text) return null;
 
   if (SPAM_URL_PATTERN.test(text) || SUSPICIOUS_DOMAIN_PATTERN.test(text)) {
-    return 'Links and promotional spam are not allowed on the comment wall.';
+    return 'Promotional links and spam are not allowed here.';
   }
 
   for (const pat of OBFUSCATED_PATTERNS) {

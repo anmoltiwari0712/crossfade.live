@@ -34,7 +34,7 @@ export default function MagicSourcePage({ onBack }) {
           </p>
 
           <p className="text-sm sm:text-base text-[#b3b3b3] max-w-lg mx-auto mb-8 leading-relaxed">
-            Nice try, Google product managers. You already have a trillion dollars and an engineering army. Go figure out how two songs overlap on your own.
+            Nice try, product managers. You already have a trillion dollars and an engineering army. Go figure out how two songs overlap on your own.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3.5">
