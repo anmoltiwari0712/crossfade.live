@@ -3,23 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CrossFade v2.0 — Dear YouTube Music, it's called crossfade.</title>
+  <title>CrossFade v2.0 — Pure Audio Transitions</title>
   <meta
     name="description"
-    content="Meet CrossFade. The tiny Chrome extension that makes your songs overlap on YouTube Music like they've actually met before. 1–12s overlap, 100% local."
+    content="Meet CrossFade. The minimalist Chrome extension that makes your songs overlap on YouTube Music. 1–12s custom crossfade, 100% local audio processing."
   />
   <link rel="icon" type="image/png" href="icon128.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="bg-glow" aria-hidden="true"></div>
-  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Announcement Bar (Minimalist style) -->
+  <div class="top-strip">
+    <span>CROSSFADE V2.0 · 100% LOCAL WEB AUDIO · ZERO TRACKING · FREE FOR CHROME</span>
+  </div>
 
   <!-- NAVIGATION -->
   <header class="nav-wrap">
@@ -27,7 +30,7 @@
       <a href="#top" class="brand">
         <img src="icon128.png" alt="CrossFade logo" class="brand-icon" />
         <span class="brand-name">CrossFade</span>
-        <span class="brand-pill">v2.0</span>
+        <span class="brand-ver">v2.0</span>
       </a>
 
       <div class="nav-links">
@@ -41,7 +44,7 @@
         href="https://chromewebstore.google.com/detail/efiacbdpmdpecdbkjfpoblkicbnemgno"
         target="_blank"
         rel="noopener noreferrer"
-        class="btn btn-sm btn-primary"
+        class="btn btn-sm btn-solid"
       >
         Add to Chrome
       </a>
@@ -50,188 +53,197 @@
 
   <main id="top">
     <!-- HERO SECTION -->
-    <section class="container hero">
-      <div class="hero-copy">
-        <div class="eyebrow">
-          <span class="pulse-dot"></span>
-          AN OPEN LETTER TO YOUTUBE MUSIC
-        </div>
-        <h1>
-          Dear YouTube Music, it's called crossfade. <span class="accent">Google it.</span>
-        </h1>
-        <p class="hero-lead">Actually, don't. Just install this.</p>
-        <p class="hero-sub">
-          Spotify figured this out years ago. Meanwhile, YouTube Music still lets one song finish, leaves you staring into the void, and then starts another.
-        </p>
-        <p class="hero-sub">
-          We got tired of waiting. <strong>Meet CrossFade.</strong> The tiny Chrome extension that makes your songs overlap like they've actually met before.
-        </p>
+    <section class="hero-band">
+      <div class="container hero">
+        <div class="hero-copy">
+          <p class="kicker">AN OPEN LETTER TO YOUTUBE MUSIC</p>
+          <h1>Dear YouTube Music, it's called crossfade. Google it.</h1>
+          <p class="hero-lead">Actually, don't. Just install this.</p>
+          <p class="hero-body">
+            Spotify figured this out years ago. Meanwhile, YouTube Music still lets one song finish, leaves you staring into the void, and then starts another.
+          </p>
+          <p class="hero-body">
+            We got tired of waiting. <strong>Meet CrossFade.</strong> The tiny Chrome extension that makes your songs overlap like they've actually met before.
+          </p>
 
-        <div class="hero-actions">
-          <a
-            href="https://chromewebstore.google.com/detail/efiacbdpmdpecdbkjfpoblkicbnemgno"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary btn-lg"
-          >
-            Fix My YouTube Music
-          </a>
-          <a href="#how-it-works" class="btn btn-ghost btn-lg">
-            See how it works ↓
-          </a>
-        </div>
+          <div class="hero-actions">
+            <a
+              href="https://chromewebstore.google.com/detail/efiacbdpmdpecdbkjfpoblkicbnemgno"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-lg btn-solid"
+            >
+              Fix My YouTube Music
+            </a>
+            <a href="#how-it-works" class="btn btn-lg btn-outline">
+              See How It Works ↓
+            </a>
+          </div>
 
-        <p class="hero-micro">
-          1–12s custom overlap · Free Chrome extension · 100% local audio processing
-        </p>
+          <p class="micro-note">
+            1–12s custom overlap · Free Chrome extension · 100% local audio processing
+          </p>
+        </div>
       </div>
 
-      <!-- Hero Embarrassing Stats Panel -->
-      <aside class="stats-panel" aria-label="The numbers Google should be embarrassed about">
-        <div class="stats-panel-head">
-          <span class="section-kicker">THE NUMBERS GOOGLE SHOULD BE EMBARRASSED ABOUT</span>
+      <!-- Spec / Numbers Strip (Clinical Minimalist Table) -->
+      <div class="container">
+        <div class="spec-strip-wrap">
+          <div class="spec-strip-label">THE NUMBERS GOOGLE SHOULD BE EMBARRASSED ABOUT</div>
+          <div class="spec-grid">
+            <div class="spec-cell">
+              <span class="spec-num">1–12s</span>
+              <span class="spec-text">Customizable crossfade</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-num">2</span>
+              <span class="spec-text">Audio decks working together</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-num">0</span>
+              <span class="spec-text">Awkward gaps (when transitions work as intended)</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-num">100%</span>
+              <span class="spec-text">Local audio processing</span>
+            </div>
+          </div>
         </div>
-        <div class="stats-grid">
-          <div class="stat-tile">
-            <span class="stat-val">1–12s</span>
-            <span class="stat-desc">Customizable crossfade</span>
-          </div>
-          <div class="stat-tile">
-            <span class="stat-val">2</span>
-            <span class="stat-desc">Audio decks working together</span>
-          </div>
-          <div class="stat-tile">
-            <span class="stat-val">0</span>
-            <span class="stat-desc">Awkward gaps (when transitions work as intended)</span>
-          </div>
-          <div class="stat-tile">
-            <span class="stat-val">100%</span>
-            <span class="stat-desc">Local audio processing</span>
-          </div>
-        </div>
-      </aside>
+      </div>
     </section>
 
     <!-- LIVE AUDIO DEMO / THE EXPERIENCE -->
-    <section id="experience" class="container section">
-      <div class="section-head">
-        <span class="section-kicker">LIVE AUDIO DEMO</span>
-        <h2>Don't just read about it. Hear what YouTube Music has been missing.</h2>
-        <p>
-          Two audio decks. One smooth transition. No awkward introductions.
-        </p>
-      </div>
-
-      <div class="demo-compare-grid">
-        <!-- Left: Before -->
-        <div class="compare-card compare-before">
-          <span class="compare-tag tag-muted">WITHOUT CROSSFADE</span>
-          <h3>On the left: how songs normally say goodbye.</h3>
-          <div class="timeline-bars" aria-hidden="true">
-            <div class="bar-track">
-              <span class="bar-fill bar-song-a">Song A</span>
-            </div>
-            <div class="bar-gap">...awkward void...</div>
-            <div class="bar-track">
-              <span class="bar-fill bar-song-b">Song B</span>
-            </div>
-          </div>
-          <ul class="compare-notes">
-            <li>Song A abruptly stops cold.</li>
-            <li>Dead silence makes you check your Wi-Fi.</li>
-            <li>Song B bursts in like a stranger.</li>
-          </ul>
-          <button type="button" class="btn btn-ghost btn-full" id="btnAuditionGap">
-            ▶ Hear the Awkward Gap (Before)
-          </button>
+    <section id="experience" class="band band-tinted">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">LIVE AUDIO DEMO</p>
+          <h2>Don't just read about it. Hear what YouTube Music has been missing.</h2>
+          <p class="section-sub">Two audio decks. One smooth transition. No awkward introductions.</p>
         </div>
 
-        <!-- Right: After / Interactive CrossFade Deck -->
-        <div class="deck-card compare-after" aria-label="Interactive crossfade demo">
-          <div class="deck-top">
-            <span class="compare-tag tag-accent">WITH CROSSFADE</span>
-            <span class="deck-badge" id="demoState">Ready</span>
-          </div>
-          <h3>On the right: how songs should say goodbye.</h3>
-
-          <div class="deck-status-pills">
-            <div class="song-pill pill-a"><strong>Song A:</strong> Still singing its heart out.</div>
-            <div class="song-pill pill-b"><strong>Song B:</strong> Already making its entrance.</div>
-          </div>
-
-          <div class="curve-stage">
-            <svg viewBox="0 0 360 100" class="curve-svg" preserveAspectRatio="none" aria-hidden="true">
-              <defs>
-                <linearGradient id="demoGradA" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#ff0033" stop-opacity="0.34" />
-                  <stop offset="100%" stop-color="#ff0033" stop-opacity="0.02" />
-                </linearGradient>
-                <linearGradient id="demoGradB" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.02" />
-                  <stop offset="100%" stop-color="#ffffff" stop-opacity="0.26" />
-                </linearGradient>
-              </defs>
-              <path id="demoAreaA" fill="url(#demoGradA)"></path>
-              <path id="demoAreaB" fill="url(#demoGradB)"></path>
-              <path id="demoLineA" fill="none" stroke="#ff0033" stroke-width="2.6" stroke-linecap="round"></path>
-              <path id="demoLineB" fill="none" stroke="#f3f3f6" stroke-width="2.6" stroke-linecap="round"></path>
-              <line id="demoPlayhead" x1="0" y1="6" x2="0" y2="94" stroke="#ff5c7c" stroke-width="1.5" stroke-dasharray="3 3" opacity="0"></line>
-            </svg>
-          </div>
-
-          <div class="deck-controls">
-            <div class="control-row">
-              <label for="demoDuration">Crossfade duration:</label>
-              <span class="mono-val" id="demoDurationLabel">2 seconds</span>
+        <div class="demo-grid">
+          <!-- Left: Without CrossFade -->
+          <div class="lab-card">
+            <div class="lab-card-top">
+              <span class="lab-tag">BEFORE · DEFAULT BEHAVIOR</span>
             </div>
-            <input id="demoDuration" type="range" min="1" max="12" step="1" value="2" />
+            <h3>On the left: how songs normally say goodbye.</h3>
 
-            <div class="curve-toggle-row">
-              <button type="button" class="seg-btn active" data-curve="equalpower" id="btnEqualPower">
-                Equal Power
-              </button>
-              <button type="button" class="seg-btn" data-curve="linear" id="btnLinear">
-                Linear
-              </button>
+            <div class="gap-diagram" aria-hidden="true">
+              <div class="gap-row">
+                <span class="gap-label">Song A</span>
+                <div class="gap-bar"><span style="width: 68%"></span></div>
+              </div>
+              <div class="gap-void">Silence · Check your internet</div>
+              <div class="gap-row">
+                <span class="gap-label">Song B</span>
+                <div class="gap-bar gap-bar-right"><span style="width: 64%"></span></div>
+              </div>
             </div>
 
-            <button type="button" class="btn btn-primary btn-full" id="btnAudition">
-              ▶ Play the Demo
+            <ul class="clean-list">
+              <li>Song A ends abruptly.</li>
+              <li>Uncomfortable pause between tracks.</li>
+              <li>Song B drops in cold.</li>
+            </ul>
+
+            <button type="button" class="btn btn-outline btn-full" id="btnAuditionGap">
+              ▶ Hear the Awkward Gap
             </button>
-            <p class="deck-footnote" id="demoGainReadout">
-              Locally synthesized audio demo. No actual songs were harmed in the making of this demonstration.
-            </p>
+          </div>
+
+          <!-- Right: With CrossFade -->
+          <div class="lab-card lab-card-featured" aria-label="Interactive crossfade audio demo">
+            <div class="lab-card-top">
+              <span class="lab-tag lab-tag-dark">AFTER · CROSSFADE V2.0</span>
+              <span class="status-text" id="demoState">Ready</span>
+            </div>
+            <h3>On the right: how songs should say goodbye.</h3>
+
+            <div class="deck-pair">
+              <div class="deck-item">
+                <span class="swatch swatch-a"></span>
+                <div><strong>Song A:</strong> Still singing its heart out.</div>
+              </div>
+              <div class="deck-item">
+                <span class="swatch swatch-b"></span>
+                <div><strong>Song B:</strong> Already making its entrance.</div>
+              </div>
+            </div>
+
+            <div class="curve-stage">
+              <svg viewBox="0 0 360 100" class="curve-svg" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="demoGradA" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#111111" stop-opacity="0.10" />
+                    <stop offset="100%" stop-color="#111111" stop-opacity="0.0" />
+                  </linearGradient>
+                  <linearGradient id="demoGradB" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#d6002f" stop-opacity="0.0" />
+                    <stop offset="100%" stop-color="#d6002f" stop-opacity="0.12" />
+                  </linearGradient>
+                </defs>
+                <path id="demoAreaA" fill="url(#demoGradA)"></path>
+                <path id="demoAreaB" fill="url(#demoGradB)"></path>
+                <path id="demoLineA" fill="none" stroke="#111111" stroke-width="2.2" stroke-linecap="round"></path>
+                <path id="demoLineB" fill="none" stroke="#d6002f" stroke-width="2.2" stroke-linecap="round"></path>
+                <line id="demoPlayhead" x1="0" y1="6" x2="0" y2="94" stroke="#111111" stroke-width="1.2" stroke-dasharray="3 3" opacity="0"></line>
+              </svg>
+            </div>
+
+            <div class="deck-controls">
+              <div class="control-row">
+                <label for="demoDuration">Crossfade duration:</label>
+                <span class="mono-val" id="demoDurationLabel">2 seconds</span>
+              </div>
+              <input id="demoDuration" type="range" min="1" max="12" step="1" value="2" />
+
+              <div class="seg-row">
+                <button type="button" class="seg-btn active" data-curve="equalpower" id="btnEqualPower">
+                  Equal Power
+                </button>
+                <button type="button" class="seg-btn" data-curve="linear" id="btnLinear">
+                  Linear
+                </button>
+              </div>
+
+              <button type="button" class="btn btn-solid btn-full" id="btnAudition">
+                ▶ Play the Demo
+              </button>
+              <p class="demo-caption" id="demoGainReadout">
+                Locally synthesized audio demo. No actual songs were harmed in the making of this demonstration.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- THE PROBLEM -->
-    <section class="container section">
-      <div class="problem-box">
-        <span class="section-kicker">WE LOVE YOU, YOUTUBE MUSIC. BUT SERIOUSLY?</span>
-        <h2>A trillion-dollar company. A billion songs. And still no crossfade?</h2>
-        <div class="problem-grid">
-          <div class="problem-copy">
-            <p>
+    <section class="band">
+      <div class="container">
+        <div class="split-layout">
+          <div>
+            <p class="kicker">WE LOVE YOU, YOUTUBE MUSIC. BUT SERIOUSLY?</p>
+            <h2>A trillion-dollar company. A billion songs. And still no crossfade?</h2>
+            <p class="prose">
               YouTube Music has recommendations that know what you'll listen to before you do. It has AI features. Massive infrastructure. Google's entire engineering army.
             </p>
-            <p>
+            <p class="prose">
               But two songs overlapping? Apparently, that's where we draw the line.
             </p>
-            <p class="problem-punch">
-              Romantic, really. Two songs that never get to meet.<br />
-              <strong>We thought this was a little ridiculous. So we did something about it. Meet CrossFade.</strong>
+            <p class="prose prose-strong">
+              Romantic, really. Two songs that never get to meet. We thought this was a little ridiculous. So we did something about it. Meet CrossFade.
             </p>
           </div>
 
-          <div class="problem-steps">
-            <span class="steps-label">Here's the current experience:</span>
-            <ol class="sad-timeline">
-              <li><span>1</span> Song A ends.</li>
-              <li><span>2</span> Silence.</li>
-              <li><span>3</span> You question your internet connection.</li>
-              <li><span>4</span> Song B finally starts.</li>
+          <div class="timeline-box">
+            <span class="timeline-title">Here's the current experience:</span>
+            <ol class="minimal-steps">
+              <li><span class="num">01</span><span>Song A ends.</span></li>
+              <li><span class="num">02</span><span>Silence.</span></li>
+              <li><span class="num">03</span><span>You question your internet connection.</span></li>
+              <li><span class="num">04</span><span>Song B finally starts.</span></li>
             </ol>
           </div>
         </div>
@@ -239,162 +251,159 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section id="how-it-works" class="container section">
-      <div class="section-head">
-        <span class="section-kicker">THREE STEPS. ZERO ROCKET SCIENCE.</span>
-        <h2>We made two songs talk to each other.</h2>
-      </div>
+    <section id="how-it-works" class="band band-tinted">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">THREE STEPS. ZERO ROCKET SCIENCE.</p>
+          <h2>We made two songs talk to each other.</h2>
+        </div>
 
-      <div class="feature-grid">
-        <article class="feature-card">
-          <span class="step-num">01 — Bring in the backup</span>
-          <h3>Prepares before Song A finishes</h3>
-          <p>
-            CrossFade prepares the incoming track so it can join before the current one completely finishes. Because apparently, waiting for an invitation is overrated.
-          </p>
-        </article>
+        <div class="three-col-grid">
+          <article class="plain-card">
+            <span class="card-index">01 — Bring in the backup</span>
+            <p>
+              CrossFade prepares the incoming track so it can join before the current one completely finishes. Because apparently, waiting for an invitation is overrated.
+            </p>
+          </article>
 
-        <article class="feature-card">
-          <span class="step-num">02 — The smooth handover</span>
-          <h3>Fades without the jump scare</h3>
-          <p>
-            Song A gradually fades out while Song B fades in. No sudden volume drops. No abrupt handoffs. No musical jump scares.
-          </p>
-        </article>
+          <article class="plain-card">
+            <span class="card-index">02 — The smooth handover</span>
+            <p>
+              Song A gradually fades out while Song B fades in. No sudden volume drops. No abrupt handoffs. No musical jump scares.
+            </p>
+          </article>
 
-        <article class="feature-card">
-          <span class="step-num">03 — Keep the party going</span>
-          <h3>Press play and forget it</h3>
-          <p>
-            The transition happens automatically while you listen. You don't need to touch anything. Just press play and pretend YouTube Music always worked this way.
-          </p>
-        </article>
+          <article class="plain-card">
+            <span class="card-index">03 — Keep the party going</span>
+            <p>
+              The transition happens automatically while you listen. You don't need to touch anything. Just press play and pretend YouTube Music always worked this way.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- CUSTOMIZATION -->
-    <section class="container section">
-      <div class="section-head">
-        <span class="section-kicker">YOU'RE THE DJ NOW</span>
-        <h2>Not every playlist needs the same therapy.</h2>
-        <p>Your gym playlist and your midnight lo-fi playlist probably shouldn't have identical transitions. We get it.</p>
-      </div>
-
-      <div class="custom-grid">
-        <div class="custom-card">
-          <h3>Choose your crossfade duration</h3>
-          <ul class="tier-list">
-            <li>
-              <span class="tier-badge">1–3 seconds</span>
-              <span>Quick transitions. No time for emotional goodbyes.</span>
-            </li>
-            <li>
-              <span class="tier-badge">4–7 seconds</span>
-              <span>The sweet spot. Smooth, natural, and just right.</span>
-            </li>
-            <li>
-              <span class="tier-badge">8–12 seconds</span>
-              <span>Full DJ mode. Because apparently you're headlining tonight.</span>
-            </li>
-          </ul>
+    <section class="band">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">YOU'RE THE DJ NOW</p>
+          <h2>Not every playlist needs the same therapy.</h2>
+          <p class="section-sub">
+            Your gym playlist and your midnight lo-fi playlist probably shouldn't have identical transitions. We get it.
+          </p>
         </div>
 
-        <div class="custom-card">
-          <h3>Pick your fade curve</h3>
-          <div class="curve-explain-list">
-            <div class="curve-explain-item">
-              <h4>Equal Power</h4>
-              <p>A smoother perceived-volume transition. Great for keeping the music feeling consistent.</p>
-            </div>
-            <div class="curve-explain-item">
-              <h4>Linear</h4>
-              <p>A straightforward, steady fade. No fancy business.</p>
+        <div class="two-col-grid">
+          <div class="lab-card">
+            <h3>Choose your crossfade duration</h3>
+            <div class="spec-rows">
+              <div class="spec-row">
+                <span class="spec-key">1–3 seconds</span>
+                <span>Quick transitions. No time for emotional goodbyes.</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-key">4–7 seconds</span>
+                <span>The sweet spot. Smooth, natural, and just right.</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-key">8–12 seconds</span>
+                <span>Full DJ mode. Because apparently you're headlining tonight.</span>
+              </div>
             </div>
           </div>
-          <p class="custom-signoff">Your music. Your rules. Your questionable playlist choices.</p>
+
+          <div class="lab-card">
+            <h3>Pick your fade curve</h3>
+            <div class="spec-rows">
+              <div class="spec-row">
+                <span class="spec-key">Equal Power</span>
+                <span>A smoother perceived-volume transition. Great for keeping the music feeling consistent.</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-key">Linear</span>
+                <span>A straightforward, steady fade. No fancy business.</span>
+              </div>
+            </div>
+            <p class="card-footnote">Your music. Your rules. Your questionable playlist choices.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- WHO NEEDS THIS? -->
-    <section class="container section">
-      <div class="section-head">
-        <span class="section-kicker">IF THE HEADPHONES FIT...</span>
-        <h2>We know you're one of these people.</h2>
-      </div>
+    <section class="band band-tinted">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">IF THE HEADPHONES FIT...</p>
+          <h2>We know you're one of these people.</h2>
+        </div>
 
-      <div class="persona-grid">
-        <article class="persona-card">
-          <h3>The gym warriors</h3>
-          <p>
-            You're hitting a PR. The music stops. Suddenly, the only thing dropping is your motivation.
-          </p>
-          <p class="persona-note">CrossFade isn't responsible for your gains, but it can save your playlist.</p>
-        </article>
+        <div class="two-col-grid">
+          <article class="plain-card">
+            <h3>The gym warriors</h3>
+            <p>You're hitting a PR. The music stops. Suddenly, the only thing dropping is your motivation.</p>
+            <p class="card-punch">CrossFade isn't responsible for your gains, but it can save your playlist.</p>
+          </article>
 
-        <article class="persona-card">
-          <h3>The late-night drivers</h3>
-          <p>
-            It's 2 AM. The road is empty. The playlist is perfect. And then YouTube Music decides everyone needs a moment of silence.
-          </p>
-          <p class="persona-note">Not tonight.</p>
-        </article>
+          <article class="plain-card">
+            <h3>The late-night drivers</h3>
+            <p>It's 2 AM. The road is empty. The playlist is perfect. And then YouTube Music decides everyone needs a moment of silence.</p>
+            <p class="card-punch">Not tonight.</p>
+          </article>
 
-        <article class="persona-card">
-          <h3>The locked-in students</h3>
-          <p>
-            Three hours into a study session. Noise-cancelling headphones on. Focus at maximum. Then a random silence reminds you that you're actually studying.
-          </p>
-          <p class="persona-note">Thanks, YouTube.</p>
-        </article>
+          <article class="plain-card">
+            <h3>The locked-in students</h3>
+            <p>Three hours into a study session. Noise-cancelling headphones on. Focus at maximum. Then a random silence reminds you that you're actually studying.</p>
+            <p class="card-punch">Thanks, YouTube.</p>
+          </article>
 
-        <article class="persona-card">
-          <h3>The playlist perfectionists</h3>
-          <p>
-            You spent two hours arranging songs in the perfect order.
-          </p>
-          <p class="persona-note">You really think we're going to let a three-second awkward gap ruin your masterpiece?</p>
-        </article>
+          <article class="plain-card">
+            <h3>The playlist perfectionists</h3>
+            <p>You spent two hours arranging songs in the perfect order.</p>
+            <p class="card-punch">You really think we're going to let a three-second awkward gap ruin your masterpiece?</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- UNDER THE HOOD -->
-    <section class="container section">
-      <div class="hood-card">
+    <section class="band">
+      <div class="container">
         <div class="section-head">
-          <span class="section-kicker">FOR THE CURIOUS NERDS</span>
+          <p class="kicker">FOR THE CURIOUS NERDS</p>
           <h2>No, we didn't just add a volume slider and call it engineering.</h2>
-          <p>
+          <p class="section-sub">
             CrossFade uses Chrome's audio capabilities and the Web Audio API to coordinate playback across two audio decks. Here's what happens behind the scenes:
           </p>
         </div>
 
-        <div class="hood-grid">
-          <article class="hood-step">
-            <span class="step-num">01 — Two audio decks</span>
+        <div class="four-col-grid">
+          <article class="plain-card">
+            <span class="card-index">01 — Two audio decks</span>
             <p>CrossFade coordinates outgoing and incoming audio so both can participate in the transition.</p>
           </article>
-          <article class="hood-step">
-            <span class="step-num">02 — Gain automation</span>
+          <article class="plain-card">
+            <span class="card-index">02 — Gain automation</span>
             <p>Web Audio gain controls apply the selected fade curve to blend the tracks.</p>
           </article>
-          <article class="hood-step">
-            <span class="step-num">03 — Smooth handoff</span>
+          <article class="plain-card">
+            <span class="card-index">03 — Smooth handoff</span>
             <p>A coordinated transition helps avoid abrupt changes when playback moves between tracks.</p>
           </article>
-          <article class="hood-step">
-            <span class="step-num">04 — Local processing</span>
+          <article class="plain-card">
+            <span class="card-index">04 — Local processing</span>
             <p>Audio processing happens inside your browser. No external audio-processing server required.</p>
           </article>
         </div>
 
-        <div class="hood-footer">
-          <p>Built with a little Web Audio API magic and a lot of frustration.</p>
+        <div class="section-action-row">
+          <p class="prose-muted">Built with a little Web Audio API magic and a lot of frustration.</p>
           <a
             href="https://github.com/anmoltiwari0712/CrossFade"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-ghost"
+            class="btn btn-outline"
           >
             View Source Code on GitHub →
           </a>
@@ -403,19 +412,19 @@
     </section>
 
     <!-- AUDIENCE / FEEDBACK -->
-    <section id="audience" class="section audience-section">
+    <section id="audience" class="band band-tinted">
       <div class="container">
-        <div class="section-head audience-head">
-          <div>
-            <span class="section-kicker">DON'T JUST TAKE OUR WORD FOR IT</span>
+        <div class="audience-head">
+          <div class="section-head" style="margin-bottom: 0;">
+            <p class="kicker">DON'T JUST TAKE OUR WORD FOR IT</p>
             <h2>Did we fix your playlist or make things worse?</h2>
-            <p>
+            <p class="section-sub">
               We're not a billion-dollar streaming company. We actually want to hear from people using this thing. Tried CrossFade? Tell us how it went.
             </p>
           </div>
-          <div class="audience-counter">
+          <div class="audience-pill">
             <span class="count-num" id="commentCount">6</span>
-            <span class="count-label">Hear from our audience</span>
+            <span>Hear from our audience</span>
           </div>
         </div>
       </div>
@@ -432,15 +441,15 @@
       </div>
 
       <!-- Comment Composer + Sanity Check -->
-      <div class="container composer-wrap">
+      <div class="container">
         <form id="commentForm" class="composer-card" novalidate>
-          <div class="composer-header">
+          <div class="composer-top">
             <div>
               <h3>Leave your two cents.</h3>
               <p>Real feedback from real listeners. No corporate-approved happiness required.</p>
             </div>
-            <span class="mod-pill" title="Abusive words, slurs, spam links, and XSS are automatically blocked">
-              🛡 Sanity Check Active
+            <span class="sanity-badge" title="Abusive words, slurs, spam links, and XSS are automatically blocked">
+              Sanity Check Active
             </span>
           </div>
 
@@ -484,7 +493,7 @@
 
           <div class="form-footer">
             <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-solid">
               Post Your Feedback
             </button>
           </div>
@@ -493,35 +502,37 @@
     </section>
 
     <!-- PRIVACY -->
-    <section id="privacy" class="container section privacy-section">
-      <div class="privacy-box">
-        <span class="section-kicker">WE'RE HERE FOR YOUR MUSIC, NOT YOUR DATA</span>
-        <h2>Your listening history isn't our business.</h2>
-        <p class="privacy-intro">
-          We don't need to know that you've played the same breakup song 47 times this week. We're not judging. We're just not collecting it.
-        </p>
+    <section id="privacy" class="band">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">WE'RE HERE FOR YOUR MUSIC, NOT YOUR DATA</p>
+          <h2>Your listening history isn't our business.</h2>
+          <p class="section-sub">
+            We don't need to know that you've played the same breakup song 47 times this week. We're not judging. We're just not collecting it.
+          </p>
+        </div>
 
-        <div class="privacy-grid">
-          <div>
+        <div class="three-col-grid">
+          <div class="plain-card">
             <h4>What do we store?</h4>
             <p>Only your three playback preferences, stored using Chrome storage:</p>
-            <ul>
+            <ul class="clean-list" style="margin-top: 10px; margin-bottom: 0;">
               <li>Enabled or disabled</li>
               <li>Crossfade duration</li>
               <li>Selected fade curve</li>
             </ul>
           </div>
 
-          <div>
+          <div class="plain-card">
             <h4>Why does CrossFade access YouTube Music?</h4>
             <p>
               To attach the crossfade engine to playback and display its status inside the extension popup.
             </p>
           </div>
 
-          <div>
+          <div class="plain-card">
             <h4>What don't we do?</h4>
-            <ul>
+            <ul class="clean-list" style="margin-bottom: 0;">
               <li>No telemetry.</li>
               <li>No tracking scripts.</li>
               <li>No external API calls.</li>
@@ -531,18 +542,16 @@
           </div>
         </div>
 
-        <p class="privacy-punch">
-          Google already knows enough about you. We don't need to help.
-        </p>
+        <p class="privacy-punch">Google already knows enough about you. We don't need to help.</p>
       </div>
     </section>
 
     <!-- FINAL CTA -->
-    <section class="container section">
-      <div class="cta-banner">
-        <span class="section-kicker">ONE LAST THING, YOUTUBE MUSIC</span>
+    <section class="band band-dark">
+      <div class="container cta-center">
+        <p class="kicker kicker-light">ONE LAST THING, YOUTUBE MUSIC</p>
         <h2>You had one job. We did it for you.</h2>
-        <p>
+        <p class="cta-sub">
           Your songs deserve better than awkward silence. Your playlists deserve better than abrupt endings. And you deserve better than waiting for an update that may or may not arrive.
         </p>
         <p class="cta-strong">Install CrossFade. Give your music the transitions it deserves.</p>
@@ -550,7 +559,7 @@
           href="https://chromewebstore.google.com/detail/efiacbdpmdpecdbkjfpoblkicbnemgno"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn btn-primary btn-lg"
+          class="btn btn-lg btn-inverted"
         >
           Add to Chrome — It's About Time
         </a>
@@ -559,29 +568,34 @@
     </section>
 
     <!-- ABOUT THE DEVELOPER -->
-    <section id="developer" class="container section">
-      <div class="dev-card">
-        <div class="dev-info">
-          <span class="section-kicker">THE PERSON WHO COULDN'T LET IT GO</span>
-          <h2>Built by Anmol. Powered by playlists and mild frustration.</h2>
-          <p>
-            I'm a software engineer who occasionally gets annoyed by tiny things and then decides to build an entire product around fixing them. CrossFade started with a simple thought: why are two songs still not allowed to overlap?
-          </p>
-          <p>
-            A little curiosity, a lot of experimenting, and here we are. If you like what I've built, say hello. If something breaks, definitely say hello.
-          </p>
-          <div class="dev-links">
-            <a
-              href="https://github.com/anmoltiwari0712"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-ghost"
-            >
-              My GitHub
-            </a>
-            <a href="mailto:oanmoltiwari7@gmail.com?subject=CrossFade%20v2.0%20—%20Hello!" class="btn btn-primary">
-              Send Me an Email
-            </a>
+    <section id="developer" class="band">
+      <div class="container">
+        <div class="dev-wrap">
+          <div>
+            <p class="kicker">THE PERSON WHO COULDN'T LET IT GO</p>
+            <h2>Built by Anmol. Powered by playlists and mild frustration.</h2>
+            <p class="prose">
+              I'm a software engineer who occasionally gets annoyed by tiny things and then decides to build an entire product around fixing them. CrossFade started with a simple thought: why are two songs still not allowed to overlap?
+            </p>
+            <p class="prose">
+              A little curiosity, a lot of experimenting, and here we are. If you like what I've built, say hello. If something breaks, definitely say hello.
+            </p>
+            <div class="dev-links">
+              <a
+                href="https://github.com/anmoltiwari0712"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline"
+              >
+                My GitHub
+              </a>
+              <a
+                href="mailto:oanmoltiwari7@gmail.com?subject=CrossFade%20v2.0%20—%20Hello!"
+                class="btn btn-solid"
+              >
+                Send Me an Email
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -589,22 +603,24 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="container footer">
-    <div class="footer-top">
-      <div class="footer-left">
-        <img src="icon128.png" alt="" class="footer-icon" />
-        <span>CrossFade v2.0 · Made independently, because apparently someone had to.</span>
+  <footer class="footer-band">
+    <div class="container footer">
+      <div class="footer-top">
+        <div class="footer-left">
+          <img src="icon128.png" alt="" class="footer-icon" />
+          <span>CrossFade v2.0 · Made independently, because apparently someone had to.</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://chromewebstore.google.com/detail/efiacbdpmdpecdbkjfpoblkicbnemgno" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
+          <a href="https://github.com/anmoltiwari0712" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="mailto:oanmoltiwari7@gmail.com">Contact</a>
+          <a href="#privacy">Privacy</a>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="https://chromewebstore.google.com/detail/efiacbdpmdpecdbkjfpoblkicbnemgno" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
-        <a href="https://github.com/anmoltiwari0712" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="mailto:oanmoltiwari7@gmail.com">Contact</a>
-        <a href="#privacy">Privacy</a>
-      </div>
+      <p class="footer-disclaimer">
+        CrossFade is an independent browser extension and is not affiliated with, endorsed by, or sponsored by YouTube or Google.
+      </p>
     </div>
-    <p class="footer-disclaimer">
-      CrossFade is an independent browser extension and is not affiliated with, endorsed by, or sponsored by YouTube or Google.
-    </p>
   </footer>
 
   <script src="app.js"></script>

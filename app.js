@@ -301,7 +301,7 @@
     gainB.gain.value = 0;
 
     btnAuditionGap.dataset.playing = '1';
-    btnAuditionGap.textContent = '■ Stop Awkward Gap Demo';
+    btnAuditionGap.textContent = '■ Stop Gap Demo';
     demoState.textContent = 'Playing Before';
 
     const t1 = setTimeout(() => {
@@ -325,7 +325,7 @@
       });
       try { gainA.disconnect(); gainB.disconnect(); master.disconnect(); } catch (_) {}
       btnAuditionGap.dataset.playing = '0';
-      btnAuditionGap.textContent = '▶ Hear the Awkward Gap (Before)';
+      btnAuditionGap.textContent = '▶ Hear the Awkward Gap';
       demoState.textContent = 'Ready';
     };
   }
