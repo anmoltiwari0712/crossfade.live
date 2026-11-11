@@ -31,3 +31,4 @@ for (const [author, text] of shouldBlock) {
 }
 
 console.log(`All ${shouldPass.length + shouldBlock.length} moderation tests passed.`);
+

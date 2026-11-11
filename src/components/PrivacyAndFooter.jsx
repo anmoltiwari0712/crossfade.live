@@ -2,13 +2,29 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { LINKS, PRIVACY_FAQS } from '../data/content';
 
-export default function PrivacyAndFooter() {
+export default function PrivacyAndFooter({ onOpenSource, onNavigateHome, showBody = true }) {
   const [openIdx, setOpenIdx] = useState(0);
+
+  const handleSectionClick = (hash) => (e) => {
+    if (onNavigateHome) {
+      e.preventDefault();
+      onNavigateHome(hash);
+    }
+  };
+
+  const handleSourceClick = (e) => {
+    if (onOpenSource) {
+      e.preventDefault();
+      onOpenSource();
+    }
+  };
 
   return (
     <>
-      {/* Spotify-style FAQ / Privacy */}
-      <section id="privacy" className="py-16 md:py-20 px-5">
+      {showBody && (
+        <>
+          {/* Spotify-style FAQ / Privacy */}
+          <section id="privacy" className="py-16 md:py-20 px-5">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <p className="font-mono text-[11px] font-bold tracking-[0.12em] uppercase text-[#ffd2d7] mb-2.5">
@@ -115,17 +131,26 @@ export default function PrivacyAndFooter() {
               >
                 Send Me an Email
               </a>
+              <a
+                href="#/source"
+                onClick={handleSourceClick}
+                className="px-6 py-3 rounded-full border border-white/35 hover:border-white text-white font-bold text-sm transition-transform hover:scale-105"
+              >
+                View Source Code on GitHub →
+              </a>
             </div>
           </div>
         </div>
       </section>
+        </>
+      )}
 
       {/* Spotify-style Black Multi-column Footer */}
       <footer className="bg-black border-t border-white/10 pt-14 pb-10 px-5">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-white/15">
             <div>
-              <a href="#top" className="flex items-center gap-2.5 mb-3">
+              <a href="#top" onClick={handleSectionClick('#top')} className="flex items-center gap-2.5 mb-3">
                 <span className="w-8 h-8 rounded-full bg-white p-1 flex items-center justify-center">
                   <img src="./icon128.png" alt="" className="w-full h-full rounded-full" />
                 </span>
@@ -139,22 +164,22 @@ export default function PrivacyAndFooter() {
             <div className="flex flex-col gap-2.5 text-sm">
               <h4 className="font-mono text-[11px] uppercase tracking-wider text-[#b3b3b3] mb-1">Product</h4>
               <a href={LINKS.cws} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#1ed760]">Chrome Web Store</a>
-              <a href="#experience" className="text-white hover:text-[#1ed760]">Live Audio Demo</a>
-              <a href="#presets" className="text-white hover:text-[#1ed760]">Fade Presets</a>
-              <a href="#difference" className="text-white hover:text-[#1ed760]">Difference Table</a>
+              <a href="#experience" onClick={handleSectionClick('#experience')} className="text-white hover:text-[#1ed760]">Live Audio Demo</a>
+              <a href="#presets" onClick={handleSectionClick('#presets')} className="text-white hover:text-[#1ed760]">Fade Presets</a>
+              <a href="#difference" onClick={handleSectionClick('#difference')} className="text-white hover:text-[#1ed760]">Difference Table</a>
             </div>
 
             <div className="flex flex-col gap-2.5 text-sm">
               <h4 className="font-mono text-[11px] uppercase tracking-wider text-[#b3b3b3] mb-1">Developer</h4>
               <a href={LINKS.githubProfile} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#1ed760]">GitHub (@anmoltiwari0712)</a>
-              <a href={LINKS.githubRepo} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#1ed760]">Source Code</a>
+              <a href="#/source" onClick={handleSourceClick} className="text-white hover:text-[#1ed760]">Source Code</a>
               <a href={LINKS.email} className="text-white hover:text-[#1ed760]">Contact Anmol</a>
             </div>
 
             <div className="flex flex-col gap-2.5 text-sm">
               <h4 className="font-mono text-[11px] uppercase tracking-wider text-[#b3b3b3] mb-1">Trust</h4>
-              <a href="#privacy" className="text-white hover:text-[#1ed760]">Privacy Promise</a>
-              <a href="#audience" className="text-white hover:text-[#1ed760]">Audience Feedback</a>
+              <a href="#privacy" onClick={handleSectionClick('#privacy')} className="text-white hover:text-[#1ed760]">Privacy Promise</a>
+              <a href="#audience" onClick={handleSectionClick('#audience')} className="text-white hover:text-[#1ed760]">Audience Feedback</a>
             </div>
           </div>
 

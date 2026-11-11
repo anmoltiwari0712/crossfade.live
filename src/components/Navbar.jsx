@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { LINKS } from '../data/content';
 
-export default function Navbar() {
+export default function Navbar({ onNavigateHome }) {
   const [open, setOpen] = useState(false);
 
   const navItems = [
@@ -13,10 +13,19 @@ export default function Navbar() {
     { label: 'Privacy', href: '#privacy' },
   ];
 
+  function handleLinkClick(href) {
+    setOpen(false);
+    onNavigateHome?.(href);
+  }
+
   return (
     <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-white/10">
       <nav className="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between" aria-label="Primary">
-        <a href="#top" className="flex items-center gap-2.5 group">
+        <a
+          href="#top"
+          onClick={() => handleLinkClick('#top')}
+          className="flex items-center gap-2.5 group"
+        >
           <span className="w-9 h-9 rounded-full bg-white p-1 flex items-center justify-center transition-transform group-hover:scale-105">
             <img src="./icon128.png" alt="" className="w-full h-full rounded-full" />
           </span>
@@ -32,13 +41,18 @@ export default function Navbar() {
             <a
               key={item.href}
               href={item.href}
+              onClick={() => handleLinkClick(item.href)}
               className="text-white hover:text-[#1ed760] transition-colors"
             >
               {item.label}
             </a>
           ))}
           <span className="text-white/30" aria-hidden="true">|</span>
-          <a href="#developer" className="text-[#b3b3b3] hover:text-white transition-colors">
+          <a
+            href="#developer"
+            onClick={() => handleLinkClick('#developer')}
+            className="text-[#b3b3b3] hover:text-white transition-colors"
+          >
             Developer
           </a>
           <a
@@ -69,7 +83,7 @@ export default function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              onClick={() => setOpen(false)}
+              onClick={() => handleLinkClick(item.href)}
               className="text-white hover:text-[#1ed760]"
             >
               {item.label}
@@ -77,7 +91,7 @@ export default function Navbar() {
           ))}
           <a
             href="#developer"
-            onClick={() => setOpen(false)}
+            onClick={() => handleLinkClick('#developer')}
             className="text-[#b3b3b3] hover:text-white"
           >
             Developer

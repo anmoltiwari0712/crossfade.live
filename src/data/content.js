@@ -135,3 +135,4 @@ export const PRIVACY_FAQS = [
     a: 'Yes—free forever, lightweight, and 100% local inside your browser. No account, no subscriptions, no corporate fluff.',
   },
 ];
+

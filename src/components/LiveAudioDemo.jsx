@@ -9,7 +9,7 @@ const GAP_STEPS = [
   'Song B finally starts.',
 ];
 
-export default function LiveAudioDemo({ duration, setDuration, curve, setCurve }) {
+export default function LiveAudioDemo({ duration, setDuration, curve, setCurve, onOpenSource }) {
   const synthRef = useRef(null);
   const stopRef = useRef(null);
 
@@ -300,7 +300,23 @@ export default function LiveAudioDemo({ duration, setDuration, curve, setCurve }
             </div>
           </div>
         </div>
+
+        <div className="mt-10 flex justify-center">
+          <a
+            href="#/source"
+            onClick={(e) => {
+              if (onOpenSource) {
+                e.preventDefault();
+                onOpenSource();
+              }
+            }}
+            className="inline-flex items-center justify-center px-7 py-3.5 rounded-full border border-white/35 hover:border-white text-white font-bold text-sm tracking-wide transition-transform hover:scale-105"
+          >
+            View Source Code on GitHub →
+          </a>
+        </div>
       </div>
     </section>
   );
 }
+
