@@ -120,9 +120,22 @@ export default function PrivacyAndFooter({
                 </span>
                 <span className="text-lg font-extrabold text-white">CrossFade</span>
               </a>
-              <p className="text-xs text-[#b3b3b3]">
+              <p className="text-xs text-[#b3b3b3] mb-4">
                 Made independently, because apparently someone had to.
               </p>
+              <a
+                href="https://hits.sh/crossfadelive.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block opacity-90 hover:opacity-100 transition-opacity"
+                aria-label="Site visits counter"
+              >
+                <img
+                  src="https://hits.sh/crossfadelive.vercel.app.svg?style=flat-square&label=site%20visits&color=1ed760&labelColor=181818"
+                  alt="Site visits"
+                  className="h-5 rounded"
+                />
+              </a>
             </div>
 
             <div className="flex flex-col gap-2.5 text-sm">
