@@ -7,12 +7,10 @@ import PresetCards from './components/PresetCards';
 import BugReportSection from './components/BugReportSection';
 import PrivacyAndFooter from './components/PrivacyAndFooter';
 import MagicSourcePage from './components/MagicSourcePage';
-import ComingSoonPage from './components/ComingSoonPage';
 
 function getRouteFromHash() {
   if (typeof window === 'undefined') return 'home';
   if (window.location.hash === '#/source') return 'source';
-  if (window.location.hash === '#/coming-soon') return 'coming-soon';
   return 'home';
 }
 
@@ -44,12 +42,6 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
-  function handleOpenComingSoon() {
-    window.location.hash = '#/coming-soon';
-    setRoute('coming-soon');
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }
-
   function handleNavigateHome(sectionHash = '#top') {
     if (route !== 'home') {
       setRoute('home');
@@ -66,24 +58,13 @@ export default function App() {
 
   return (
     <div id="top" className="min-h-screen bg-[#121212] text-white">
-      <Navbar
-        onNavigateHome={handleNavigateHome}
-        onOpenComingSoon={handleOpenComingSoon}
-      />
+      <Navbar onNavigateHome={handleNavigateHome} />
       <main>
         {route === 'source' ? (
-          <MagicSourcePage
-            onBack={() => handleNavigateHome('#top')}
-            onOpenComingSoon={handleOpenComingSoon}
-          />
-        ) : route === 'coming-soon' ? (
-          <ComingSoonPage
-            onBack={() => handleNavigateHome('#top')}
-            onTryDemo={() => handleNavigateHome('#experience')}
-          />
+          <MagicSourcePage onBack={() => handleNavigateHome('#top')} />
         ) : (
           <>
-            <Hero onOpenComingSoon={handleOpenComingSoon} />
+            <Hero />
             <DifferenceTable />
             <LiveAudioDemo
               duration={duration}
@@ -92,16 +73,12 @@ export default function App() {
               setCurve={setCurve}
               onOpenSource={handleOpenSource}
             />
-            <PresetCards
-              onSelectPreset={handleSelectPreset}
-              onOpenComingSoon={handleOpenComingSoon}
-            />
+            <PresetCards onSelectPreset={handleSelectPreset} />
             <BugReportSection />
           </>
         )}
         <PrivacyAndFooter
           onOpenSource={handleOpenSource}
-          onOpenComingSoon={handleOpenComingSoon}
           onNavigateHome={handleNavigateHome}
           showBody={route === 'home'}
         />

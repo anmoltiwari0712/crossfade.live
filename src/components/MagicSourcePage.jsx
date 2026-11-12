@@ -1,7 +1,7 @@
 import { ArrowLeft, Sparkles } from 'lucide-react';
 import { LINKS } from '../data/content';
 
-export default function MagicSourcePage({ onBack, onOpenComingSoon }) {
+export default function MagicSourcePage({ onBack }) {
   return (
     <section
       className="min-h-[calc(100vh-160px)] flex items-center justify-center py-16 md:py-24 px-5"
@@ -48,12 +48,8 @@ export default function MagicSourcePage({ onBack, onOpenComingSoon }) {
 
             <a
               href={LINKS.cws}
-              onClick={(e) => {
-                if (onOpenComingSoon) {
-                  e.preventDefault();
-                  onOpenComingSoon();
-                }
-              }}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-7 py-3.5 rounded-full bg-[#1ed760] hover:bg-[#3be477] text-black font-bold text-sm transition-transform hover:scale-105"
             >
               Install the Magic Anyway

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { LINKS } from '../data/content';
 
-export default function Navbar({ onNavigateHome, onOpenComingSoon }) {
+export default function Navbar({ onNavigateHome }) {
   const [open, setOpen] = useState(false);
 
   const navItems = [
@@ -16,14 +16,6 @@ export default function Navbar({ onNavigateHome, onOpenComingSoon }) {
   function handleLinkClick(href) {
     setOpen(false);
     onNavigateHome?.(href);
-  }
-
-  function handleComingSoonClick(e) {
-    setOpen(false);
-    if (onOpenComingSoon) {
-      e.preventDefault();
-      onOpenComingSoon();
-    }
   }
 
   return (
@@ -69,7 +61,8 @@ export default function Navbar({ onNavigateHome, onOpenComingSoon }) {
           </a>
           <a
             href={LINKS.cws}
-            onClick={handleComingSoonClick}
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-full bg-[#1ed760] hover:bg-[#3be477] text-black font-bold transition-transform hover:scale-105"
           >
             Add to Chrome
@@ -111,7 +104,9 @@ export default function Navbar({ onNavigateHome, onOpenComingSoon }) {
           </a>
           <a
             href={LINKS.cws}
-            onClick={handleComingSoonClick}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
             className="mt-1 text-center px-5 py-3 rounded-full bg-[#1ed760] text-black font-bold"
           >
             Add to Chrome

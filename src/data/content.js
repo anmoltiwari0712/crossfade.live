@@ -1,7 +1,5 @@
 export const LINKS = {
-  // Replace with live Chrome Web Store URL once approved:
-  // 'https://chromewebstore.google.com/detail/efiacbdpmdpecdbkjfpoblkicbnemgno'
-  cws: '#/coming-soon',
+  cws: 'https://chromewebstore.google.com/detail/crossfade-for-utube-music/efiacbdpmdpecdbkjfpoblkicbnemgno',
   githubProfile: 'https://github.com/anmoltiwari0712',
   githubRepo: 'https://github.com/anmoltiwari0712/CrossFade',
   githubIssues: 'https://github.com/anmoltiwari0712/crossfade.live/issues/new',

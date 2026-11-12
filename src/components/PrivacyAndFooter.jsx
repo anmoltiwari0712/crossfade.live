@@ -4,7 +4,6 @@ import { LINKS, PRIVACY_FAQS } from '../data/content';
 
 export default function PrivacyAndFooter({
   onOpenSource,
-  onOpenComingSoon,
   onNavigateHome,
   showBody = true,
 }) {
@@ -21,13 +20,6 @@ export default function PrivacyAndFooter({
     if (onOpenSource) {
       e.preventDefault();
       onOpenSource();
-    }
-  };
-
-  const handleComingSoonClick = (e) => {
-    if (onOpenComingSoon) {
-      e.preventDefault();
-      onOpenComingSoon();
     }
   };
 
@@ -101,7 +93,8 @@ export default function PrivacyAndFooter({
                 <div>
                   <a
                     href={LINKS.cws}
-                    onClick={handleComingSoonClick}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-block px-7 py-3.5 rounded-full bg-[#1ed760] hover:bg-[#3be477] text-black font-bold text-sm transition-transform hover:scale-105"
                   >
                     Add to Chrome. It’s About Time
@@ -134,7 +127,7 @@ export default function PrivacyAndFooter({
 
             <div className="flex flex-col gap-2.5 text-sm">
               <h4 className="font-mono text-[11px] uppercase tracking-wider text-[#b3b3b3] mb-1">Product</h4>
-              <a href={LINKS.cws} onClick={handleComingSoonClick} className="text-white hover:text-[#1ed760]">Chrome Web Store</a>
+              <a href={LINKS.cws} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#1ed760]">Chrome Web Store</a>
               <a href="#experience" onClick={handleSectionClick('#experience')} className="text-white hover:text-[#1ed760]">Live Audio Demo</a>
               <a href="#presets" onClick={handleSectionClick('#presets')} className="text-white hover:text-[#1ed760]">Fade Presets</a>
               <a href="#difference" onClick={handleSectionClick('#difference')} className="text-white hover:text-[#1ed760]">Difference Table</a>
