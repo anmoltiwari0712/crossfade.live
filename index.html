@@ -3,11 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CrossFade | Crossfade for Youutube Music</title>
+    <title>CrossFade — Seamless Crossfade for YouTube Music (Chrome Extension)</title>
     <meta
       name="description"
-      content="Dear Youutube Music, it's called crossfade. Meet CrossFade v2.0, the free Chrome extension that overlaps songs cleanly. 100% local."
+      content="Get seamless 1–12s crossfade on YouTube Music with dual-deck Web Audio processing. No awkward silence gaps, Equal Power & Linear curves, 100% local. 200+ installs this week."
     />
+    <meta
+      name="keywords"
+      content="crossfade youtube music, youtube music crossfade, crossfade chrome extension, youtube music seamless playback, gapless playback youtube music, equal power crossfade, spotify crossfade for youtube music, web audio crossfade, youtube music overlap songs"
+    />
+    <meta name="author" content="Anmol Tiwari" />
+    <link rel="canonical" href="https://crossfadelive.vercel.app/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#121212" />
+    <meta name="application-name" content="CrossFade" />
+    <meta name="apple-mobile-web-app-title" content="CrossFade" />
+
+    <!-- Open Graph / Facebook / LinkedIn / Discord -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CrossFade — Seamless Crossfade for YouTube Music" />
+    <meta
+      property="og:description"
+      content="Spotify figured this out years ago. Meet CrossFade: the lightweight Chrome extension that gives YouTube Music the crossfade it's always been missing. 200+ active listeners."
+    />
+    <meta property="og:url" content="https://crossfadelive.vercel.app/" />
+    <meta property="og:site_name" content="CrossFade" />
+    <meta property="og:image" content="https://crossfadelive.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:image:alt" content="CrossFade for YouTube Music Chrome extension interface and audio demo" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CrossFade — Seamless Crossfade for YouTube Music" />
+    <meta
+      name="twitter:description"
+      content="Spotify figured this out years ago. Meet CrossFade: 1–12s custom overlap with 100% local audio processing. 200+ installs this week."
+    />
+    <meta name="twitter:image" content="https://crossfadelive.vercel.app/og-image.png" />
+    <meta name="twitter:creator" content="@anmoltiwari0712" />
+
     <link rel="icon" type="image/png" href="./icon128.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,6 +52,88 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Structured Data (JSON-LD) for Search Engines -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://crossfadelive.vercel.app/#software",
+            "name": "CrossFade for UTube Music",
+            "operatingSystem": "ChromeOS, macOS, Windows, Linux",
+            "applicationCategory": "MultimediaApplication",
+            "applicationSubCategory": "Audio Browser Extension",
+            "description": "Seamless 1–12 second audio crossfade and gapless transitions for YouTube Music using local dual-deck Web Audio processing in Google Chrome.",
+            "url": "https://crossfadelive.vercel.app/",
+            "downloadUrl": "https://chromewebstore.google.com/detail/crossfade-for-utube-music/efiacbdpmdpecdbkjfpoblkicbnemgno",
+            "image": "https://crossfadelive.vercel.app/og-image.png",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "ratingCount": "12",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "author": {
+              "@type": "Person",
+              "name": "Anmol Tiwari",
+              "url": "https://bilkulanmol.vercel.app"
+            },
+            "featureList": [
+              "1–12s customizable overlap duration",
+              "Dual audio deck coordination",
+              "Equal Power and Linear fade curves",
+              "100% local Web Audio processing with zero external tracking"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://crossfadelive.vercel.app/#website",
+            "url": "https://crossfadelive.vercel.app/",
+            "name": "CrossFade",
+            "description": "Official launch page and interactive live demo for CrossFade Chrome Extension.",
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://crossfadelive.vercel.app/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Does YouTube Music support crossfade?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "YouTube Music does not offer native crossfading on desktop web. CrossFade is a free Chrome extension that coordinates two audio decks to create smooth, customizable 1 to 12 second overlaps between songs."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does CrossFade work on YouTube Music?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "CrossFade prepares the incoming track on a secondary deck before the current song ends, automating volume gain with Equal Power or Linear fade curves inside your browser."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is CrossFade free and private?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. CrossFade is completely free, 100% local, collects no user listening data, and requires no account or subscription."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body class="bg-[#121212] text-white antialiased selection:bg-[#ffd2d7] selection:text-black">
     <div id="root"></div>

@@ -20,6 +20,25 @@ export default function Navbar({ onNavigateHome }) {
 
   return (
     <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-white/10">
+      {/* Top installs announcement bar */}
+      <aside className="bg-gradient-to-r from-[#1ed760] via-[#57e389] to-[#1ed760] text-black text-xs font-bold py-1.5 px-4 text-center border-b border-black/10">
+        <div className="max-w-6xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+          <span className="inline-flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
+            🔥 <strong>200+ listeners</strong> installed CrossFade in the last 7 days!
+          </span>
+          <span className="hidden sm:inline text-black/40">•</span>
+          <a
+            href={LINKS.cws}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-black/60 hover:decoration-black font-extrabold inline-flex items-center gap-1"
+          >
+            Add to Chrome Free →
+          </a>
+        </div>
+      </aside>
+
       <nav className="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] md:gap-4" aria-label="Primary">
         <a
           href="#top"
