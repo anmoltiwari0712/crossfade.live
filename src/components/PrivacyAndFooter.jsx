@@ -155,9 +155,11 @@ export default function PrivacyAndFooter({
             </div>
 
             <div className="flex flex-col gap-2.5 text-sm">
-              <h4 className="font-mono text-[11px] uppercase tracking-wider text-[#b3b3b3] mb-1">Trust</h4>
+              <h4 className="font-mono text-[11px] uppercase tracking-wider text-[#b3b3b3] mb-1">Trust & Docs</h4>
               <a href="#privacy" onClick={handleSectionClick('#privacy')} className="text-white hover:text-[#1ed760]">Privacy Promise</a>
               <a href="#report" onClick={handleSectionClick('#report')} className="text-white hover:text-[#1ed760]">Report a Bug</a>
+              <a href="/llms.txt" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#1ed760]">LLMs.txt (AI Spec)</a>
+              <a href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#1ed760]">W3C Web Audio API</a>
             </div>
           </div>
 

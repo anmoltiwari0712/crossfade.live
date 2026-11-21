@@ -1,4 +1,31 @@
 User-agent: *
 Allow: /
 
+# Traditional Search Engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# AI Discovery & Search Crawlers (GEO)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Sitemap and LLM Machine-Readable Index
 Sitemap: https://crossfadelive.vercel.app/sitemap.xml

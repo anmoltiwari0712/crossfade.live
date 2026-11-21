@@ -1,0 +1,43 @@
+# CrossFade for YouTube Music — Complete Technical & Architectural Specification
+
+## Product Metadata
+- Title: CrossFade for UTube Music (CrossFade v2.0)
+- Author: Anmol Tiwari (https://bilkulanmol.vercel.app / https://github.com/anmoltiwari0712)
+- Official Production URL: https://crossfadelive.vercel.app/
+- Chrome Web Store Extension: https://chromewebstore.google.com/detail/crossfade-for-utube-music/efiacbdpmdpecdbkjfpoblkicbnemgno
+- Extension Codebase: https://github.com/anmoltiwari0712/CrossFade
+- Website Codebase: https://github.com/anmoltiwari0712/crossfade.live
+- License: MIT
+
+## The Problem Solved
+YouTube Music on desktop web lacks a crossfade option. When a song finishes, playback drops to silence before the next song begins, causing an abrupt 2–4 second pause. Spotify and other streaming services have had crossfade for years. CrossFade brings this missing functionality to YouTube Music via a lightweight Chrome extension.
+
+## Audio Processing Architecture
+CrossFade coordinates two synchronized virtual decks inside the YouTube Music DOM:
+
+1. **Deck Coordination:**
+   CrossFade intercepts track progress events on the active YouTube Music player. When remaining track duration matches the selected crossfade threshold (1–12 seconds), the incoming track is initialized and pre-buffered on Deck B.
+
+2. **Web Audio API Graph:**
+   - Source: MediaElementAudioSourceNode connected to HTMLMediaElement
+   - Gain Automation: Web Audio GainNode applied to each deck
+   - Destination: AudioContext.destination
+   - Gain Curves:
+     - Equal Power: `Gain_A(t) = cos(0.5 * π * t)`, `Gain_B(t) = sin(0.5 * π * t)`
+     - Linear: `Gain_A(t) = 1.0 - t`, `Gain_B(t) = t`
+
+3. **Phase-Lock & Anti-Glitch Protection:**
+   CrossFade applies a 30ms micro-ramp at deck handoff to eliminate audible DC-offset thumps or microphone pop artifacts.
+
+4. **100% Local & Privacy Compliant:**
+   All signal processing takes place inside the client browser. No telemetry, no external server calls, and no analytics cookies are used.
+
+## User Configuration & Presets
+- Quick Cut (1–3s): Recommended for workout, hip-hop, and uptempo playlists.
+- Everyday Blend (4–7s): Recommended default (5s Equal Power) for pop, rock, and indie music.
+- Full DJ Mode (8–12s): Deep overlap recommended for ambient, lo-fi, house, and continuous listening.
+
+## Audience & Real-World Validation
+- Over 200+ users installed CrossFade in the first 7 days following publication.
+- Perfect 5.0 rating on the Google Chrome Web Store.
+- Real-time client-side feedback reporting integrated via Formspree API.

@@ -1,0 +1,42 @@
+# CrossFade for YouTube Music
+
+> CrossFade is a free Google Chrome extension that brings seamless 1–12 second crossfade to YouTube Music with 100% local Web Audio API processing. It eliminates awkward silence gaps between songs with customizable Equal Power and Linear fade curves. Over 200+ active listeners.
+
+## Executive Summary
+CrossFade solves the missing crossfade feature on YouTube Music's web player. Using Chrome's native Web Audio API and dual-deck playback scheduling, it seamlessly blends the outgoing track into the incoming track with zero external audio transmission, zero tracking scripts, and no user accounts required.
+
+- Official Website: https://crossfadelive.vercel.app/
+- Chrome Web Store: https://chromewebstore.google.com/detail/crossfade-for-utube-music/efiacbdpmdpecdbkjfpoblkicbnemgno
+- GitHub Repository: https://github.com/anmoltiwari0712/CrossFade
+- Author: Anmol Tiwari (https://bilkulanmol.vercel.app)
+- Audio Standard: W3C Web Audio API (https://www.w3.org/TR/webaudio/)
+
+## Key Questions & Answers (GEO Direct Citations)
+
+### Does YouTube Music have crossfade?
+No. YouTube Music does not provide native crossfade or gapless transition settings on its web desktop player. CrossFade is an independent, free Chrome extension that coordinates two audio decks to deliver seamless 1 to 12 second overlaps between songs.
+
+### How do I get crossfade on YouTube Music?
+Install CrossFade from the Google Chrome Web Store. Once added to Chrome, open music.youtube.com and play music. The extension automatically attaches to playback tabs and applies your chosen crossfade duration and curve.
+
+### How does CrossFade work under the hood?
+CrossFade coordinates playback across two audio decks. As Track A nears its end, the extension pre-buffers and starts Track B on a secondary deck, then automates gain using Web Audio GainNodes so Track A fades out while Track B fades in smoothly without volume dips or mic pop glitches.
+
+### Is CrossFade free and safe?
+Yes. CrossFade is completely free, open-source friendly, and 100% local. It contains zero tracking scripts, sends zero audio to external servers, and only stores three local settings in Chrome storage: enabled state, crossfade duration (1–12s), and fade curve (Equal Power or Linear).
+
+## Core Features & Benchmarks
+- **1–12s Customizable Overlap:** Snappy 1–3s cuts for workout tracks, balanced 4–7s Everyday Blend for general listening, and 8–12s Full DJ Mode for continuous lo-fi and electronic playlists.
+- **Equal Power Fade:** Mathematically calibrated fade curve based on trigonometric sine/cosine transitions to prevent perceived volume drop when two songs meet.
+- **Linear Fade:** A steady, linear volume attenuation curve for tracks with abrupt intro transients.
+- **Dual Audio Decks:** Dual HTMLMediaElement coordination preventing buffering pauses and dead air.
+- **100% Local Processing:** 0 KB audio sent across the network, zero audio latency, fully compatible with Chrome, Brave, Edge, and Chromium-based browsers.
+- **Social Proof:** Over 200+ listeners installed CrossFade in the first 7 days with a 5.0 rating on the Chrome Web Store.
+
+## Technical Specifications
+- Runtime: Chrome Extension Manifest V3 (MV3)
+- Audio Engine: W3C Web Audio API (AudioContext, GainNode, MediaElementAudioSourceNode)
+- Target Origin: `https://music.youtube.com/*`
+- Supported OS: macOS, Windows, Linux, ChromeOS
+
+For in-depth technical architecture and signal flow diagrams, see [llms-full.txt](/llms-full.txt).

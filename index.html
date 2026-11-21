@@ -45,6 +45,7 @@
     <meta name="twitter:image" content="https://crossfadelive.vercel.app/og-image.png" />
     <meta name="twitter:creator" content="@anmoltiwari0712" />
 
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
     <link rel="icon" type="image/png" href="./icon128.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,7 +54,7 @@
       rel="stylesheet"
     />
 
-    <!-- Structured Data (JSON-LD) for Search Engines -->
+    <!-- Structured Data (JSON-LD) for Search Engines & GEO Assistants -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -86,6 +87,7 @@
               "name": "Anmol Tiwari",
               "url": "https://bilkulanmol.vercel.app"
             },
+            "citation": "https://www.w3.org/TR/webaudio/",
             "featureList": [
               "1–12s customizable overlap duration",
               "Dual audio deck coordination",
@@ -100,6 +102,31 @@
             "name": "CrossFade",
             "description": "Official launch page and interactive live demo for CrossFade Chrome Extension.",
             "inLanguage": "en-US"
+          },
+          {
+            "@type": "HowTo",
+            "@id": "https://crossfadelive.vercel.app/#howto",
+            "name": "How to get crossfade on YouTube Music",
+            "description": "Step-by-step instructions to enable seamless song crossfading on YouTube Music web player using the CrossFade Chrome extension.",
+            "totalTime": "PT1M",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Install the CrossFade Chrome Extension",
+                "text": "Add CrossFade for UTube Music directly from the Google Chrome Web Store.",
+                "url": "https://chromewebstore.google.com/detail/crossfade-for-utube-music/efiacbdpmdpecdbkjfpoblkicbnemgno"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Open YouTube Music in your browser",
+                "text": "Navigate to music.youtube.com and begin playing any playlist or album."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Configure your desired transition",
+                "text": "Click the CrossFade icon in your browser toolbar to select your preferred overlap duration (1 to 12 seconds) and fade curve (Equal Power or Linear)."
+              }
+            ]
           },
           {
             "@type": "FAQPage",
@@ -136,7 +163,39 @@
     </script>
   </head>
   <body class="bg-[#121212] text-white antialiased selection:bg-[#ffd2d7] selection:text-black">
-    <div id="root"></div>
+    <!-- Raw HTML accessible to non-JS AI Crawlers (Perplexity, OAI-SearchBot, ClaudeBot, Bingbot) before React hydration -->
+    <div id="root">
+      <header>
+        <nav>
+          <h1>CrossFade for YouTube Music</h1>
+          <p>Over 200+ listeners installed CrossFade in the last 7 days! 100% Free on Chrome Web Store.</p>
+          <a href="https://chromewebstore.google.com/detail/crossfade-for-utube-music/efiacbdpmdpecdbkjfpoblkicbnemgno">Add to Chrome</a>
+        </nav>
+      </header>
+      <main>
+        <section>
+          <h2>Dear YouTube Music, it's called crossfade. Google it.</h2>
+          <p>Actually, don't. Just install this. Spotify figured this out years ago. Meanwhile YouTube Music still leaves you staring into the void between songs.</p>
+          <p>CrossFade is the tiny Chrome extension that makes your songs overlap like they have met before. 1–12s customizable crossfade, dual audio decks, 0 awkward gaps, and 100% local audio processing.</p>
+        </section>
+        <section>
+          <h2>Does YouTube Music have crossfade?</h2>
+          <p>No. YouTube Music does not provide native crossfade or gapless transition settings on its web desktop player. CrossFade coordinates two audio decks using the W3C Web Audio API to blend tracks with 1–12s customizable overlap.</p>
+        </section>
+        <section>
+          <h2>How CrossFade Works</h2>
+          <ol>
+            <li><strong>01 Bring in the backup:</strong> CrossFade prepares the incoming track so it can join before the current one completely finishes.</li>
+            <li><strong>02 The smooth handover:</strong> Song A gradually fades out while Song B fades in with Equal Power or Linear curves.</li>
+            <li><strong>03 Keep the party going:</strong> Transitions happen automatically with zero awkward silence.</li>
+          </ol>
+        </section>
+        <section>
+          <h2>Privacy Promise</h2>
+          <p>Your listening history isn't our business. Zero telemetry. Zero tracking scripts. Zero external API calls. 100% local in Chrome.</p>
+        </section>
+      </main>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

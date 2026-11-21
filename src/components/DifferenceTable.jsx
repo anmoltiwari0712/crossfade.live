@@ -68,6 +68,19 @@ export default function DifferenceTable() {
             </div>
           ))}
         </div>
+
+        <p className="text-xs text-[#727272] text-center mt-4">
+          Audio engine built on the official{' '}
+          <a
+            href="https://www.w3.org/TR/webaudio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#b3b3b3] underline hover:text-white"
+          >
+            W3C Web Audio API
+          </a>{' '}
+          standard. 100% local, zero latency, no audio data transmitted.
+        </p>
       </div>
     </section>
   );
