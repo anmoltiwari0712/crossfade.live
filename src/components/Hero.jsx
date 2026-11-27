@@ -1,6 +1,9 @@
 import { LINKS } from '../data/content';
+import { useStoreStats } from '../hooks/useStoreStats';
 
 export default function Hero() {
+  const stats = useStoreStats();
+
   return (
     <section
       className="relative overflow-hidden pt-20 pb-24 md:pt-24 md:pb-28 text-center"
@@ -40,7 +43,7 @@ export default function Hero() {
         </div>
 
         <p className="text-xs text-[#e3d7e2] max-w-xl mx-auto">
-          200+ active listeners · 1–12s custom overlap · 2 audio decks · 100% local audio processing · Free Chrome extension. Not affiliated with Google or Spotify.
+          {stats.installs} active listeners · 1–12s custom overlap · 2 audio decks · 100% local audio processing · Free Chrome extension. Not affiliated with Google or Spotify.
         </p>
       </div>
     </section>

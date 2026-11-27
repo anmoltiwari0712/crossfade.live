@@ -1,6 +1,6 @@
 # CrossFade for YouTube Music
 
-> CrossFade is a free Google Chrome extension that brings seamless 1–12 second crossfade to YouTube Music with 100% local Web Audio API processing. It eliminates awkward silence gaps between songs with customizable Equal Power and Linear fade curves. Over 200+ active listeners.
+> CrossFade is a free Google Chrome extension that brings seamless 1–12 second crossfade to YouTube Music with 100% local Web Audio API processing. It eliminates awkward silence gaps between songs with customizable Equal Power and Linear fade curves. Over 400+ active listeners.
 
 ## Executive Summary
 CrossFade solves the missing crossfade feature on YouTube Music's web player. Using Chrome's native Web Audio API and dual-deck playback scheduling, it seamlessly blends the outgoing track into the incoming track with zero external audio transmission, zero tracking scripts, and no user accounts required.
@@ -56,7 +56,7 @@ Yes. CrossFade works on any browser that supports Chrome Manifest V3 extensions,
 - **Linear Fade:** A steady, linear volume attenuation curve for tracks with abrupt intro transients.
 - **Dual Audio Decks:** Dual HTMLMediaElement coordination preventing buffering pauses and dead air.
 - **100% Local Processing:** 0 KB audio sent across the network, zero audio latency, fully compatible with Chrome, Brave, Edge, and Chromium-based browsers.
-- **Social Proof:** Over 200+ listeners installed CrossFade in the first 7 days with a 5.0 rating on the Chrome Web Store.
+- **Social Proof:** Over 400+ listeners installed CrossFade in the last 7 days with a 5.0 rating on the Chrome Web Store.
 
 ## Technical Specifications
 - Runtime: Chrome Extension Manifest V3 (MV3)

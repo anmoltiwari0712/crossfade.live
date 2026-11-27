@@ -38,7 +38,7 @@ CrossFade coordinates two synchronized virtual decks inside the YouTube Music DO
 - Full DJ Mode (8–12s): Deep overlap recommended for ambient, lo-fi, house, and continuous listening.
 
 ## Audience & Real-World Validation
-- Over 200+ users installed CrossFade in the first 7 days following publication.
+- Over 400+ users installed CrossFade in the last 7 days following publication.
 - Perfect 5.0 rating on the Google Chrome Web Store.
 - Real-time client-side feedback reporting integrated via Formspree API.
 

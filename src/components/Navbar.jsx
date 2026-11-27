@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { LINKS } from '../data/content';
+import { useStoreStats } from '../hooks/useStoreStats';
 
 export default function Navbar({ onNavigateHome }) {
   const [open, setOpen] = useState(false);
+  const stats = useStoreStats();
 
   const navItems = [
     { label: 'Difference', href: '#difference' },
@@ -25,8 +27,16 @@ export default function Navbar({ onNavigateHome }) {
         <div className="max-w-6xl mx-auto flex items-center justify-center gap-2 flex-wrap">
           <span className="inline-flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
-            🔥 <strong>200+ listeners</strong> installed CrossFade in the last 7 days!
+            🔥 <strong>{stats.installs} listeners</strong> installed CrossFade in the {stats.period}!
           </span>
+          {stats.impressions && (
+            <>
+              <span className="hidden sm:inline text-black/40">•</span>
+              <span className="hidden sm:inline-flex items-center gap-1 text-black/90">
+                👁️ <strong>{stats.impressions}</strong> Store impressions
+              </span>
+            </>
+          )}
           <span className="hidden sm:inline text-black/40">•</span>
           <a
             href={LINKS.cws}

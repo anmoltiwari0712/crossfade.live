@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { LINKS, PRIVACY_FAQS } from '../data/content';
 
@@ -8,6 +8,16 @@ export default function PrivacyAndFooter({
   showBody = true,
 }) {
   const [openIdx, setOpenIdx] = useState(0);
+  const [badgeUrl, setBadgeUrl] = useState(
+    'https://hits.sh/crossfadelive.vercel.app.svg?style=flat-square&label=site%20visits&color=1ed760&labelColor=181818'
+  );
+
+  useEffect(() => {
+    // Bust browser image cache so visitor counter is always accurate and live
+    setBadgeUrl(
+      `https://hits.sh/crossfadelive.vercel.app.svg?style=flat-square&label=site%20visits&color=1ed760&labelColor=181818&_t=${Date.now()}`
+    );
+  }, []);
 
   const handleSectionClick = (hash) => (e) => {
     if (onNavigateHome) {
@@ -131,7 +141,7 @@ export default function PrivacyAndFooter({
                 aria-label="Site visits counter"
               >
                 <img
-                  src="https://hits.sh/crossfadelive.vercel.app.svg?style=flat-square&label=site%20visits&color=1ed760&labelColor=181818"
+                  src={badgeUrl}
                   alt="Site visits"
                   className="h-5 rounded"
                 />
