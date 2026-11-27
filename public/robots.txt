@@ -11,21 +11,49 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-# AI Discovery & Search Crawlers (GEO)
+# AI Discovery, Search & Grounding Crawlers (GEO)
+# OpenAI / ChatGPT
 User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
+# Google Gemini & Google AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# Perplexity AI
 User-agent: PerplexityBot
 Allow: /
 
+# Anthropic Claude
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI & Other LLM Grounding Bots
 User-agent: meta-externalagent
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+User-agent: DuckAssistBot
 Allow: /
 
 # Sitemap and LLM Machine-Readable Index
 Sitemap: https://crossfadelive.vercel.app/sitemap.xml
+

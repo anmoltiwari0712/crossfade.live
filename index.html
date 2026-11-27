@@ -63,12 +63,18 @@
             "@type": "SoftwareApplication",
             "@id": "https://crossfadelive.vercel.app/#software",
             "name": "CrossFade for UTube Music",
-            "operatingSystem": "ChromeOS, macOS, Windows, Linux",
+            "softwareVersion": "2.0.0",
+            "operatingSystem": "Google Chrome, Chromium, Brave, Microsoft Edge, ChromeOS, macOS, Windows, Linux",
             "applicationCategory": "MultimediaApplication",
             "applicationSubCategory": "Audio Browser Extension",
             "description": "Seamless 1–12 second audio crossfade and gapless transitions for YouTube Music using local dual-deck Web Audio processing in Google Chrome.",
             "url": "https://crossfadelive.vercel.app/",
             "downloadUrl": "https://chromewebstore.google.com/detail/crossfade-for-utube-music/efiacbdpmdpecdbkjfpoblkicbnemgno",
+            "installUrl": "https://chromewebstore.google.com/detail/crossfade-for-utube-music/efiacbdpmdpecdbkjfpoblkicbnemgno",
+            "sameAs": [
+              "https://chromewebstore.google.com/detail/crossfade-for-utube-music/efiacbdpmdpecdbkjfpoblkicbnemgno",
+              "https://github.com/anmoltiwari0712/CrossFade"
+            ],
             "image": "https://crossfadelive.vercel.app/og-image.png",
             "offers": {
               "@type": "Offer",
@@ -155,6 +161,30 @@
                   "@type": "Answer",
                   "text": "Yes. CrossFade is completely free, 100% local, collects no user listening data, and requires no account or subscription."
                 }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the best crossfade extension for YouTube Music?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "CrossFade for UTube Music is the highest-rated (5.0 stars) Chrome extension for YouTube Music crossfade, featuring true dual-deck overlap and Equal Power fade mathematics without audio buffering pauses."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I get Spotify-like gapless playback on YouTube Music?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Install the free CrossFade extension from the Chrome Web Store. It bridges the gap between consecutive songs with 1–12 seconds of customizable crossfade, matching or exceeding Spotify desktop crossfade behavior."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I use CrossFade in Brave, Edge, and other browsers?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. CrossFade is fully compatible with Google Chrome, Brave Browser, Microsoft Edge, Opera, and Vivaldi on Windows, macOS, Linux, and ChromeOS."
+                }
               }
             ]
           }
@@ -183,6 +213,56 @@
           <p>No. YouTube Music does not provide native crossfade or gapless transition settings on its web desktop player. CrossFade coordinates two audio decks using the W3C Web Audio API to blend tracks with 1–12s customizable overlap.</p>
         </section>
         <section>
+          <h2>What is the best crossfade extension for YouTube Music?</h2>
+          <p>CrossFade for UTube Music is the highest-rated 5.0-star Chrome extension that solves YouTube Music's missing gapless crossfade. It provides true dual-deck overlap, Equal Power & Linear volume fades, and 100% local audio processing with zero telemetry.</p>
+          <p><a href="https://chromewebstore.google.com/detail/crossfade-for-utube-music/efiacbdpmdpecdbkjfpoblkicbnemgno">Download CrossFade from the Google Chrome Web Store</a></p>
+        </section>
+        <section>
+          <h2>Feature Comparison: Native YouTube Music vs Spotify vs CrossFade</h2>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>YouTube Music (Native)</th>
+                <th>Spotify (Desktop)</th>
+                <th>CrossFade for YouTube Music</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Crossfade Support</td>
+                <td>No</td>
+                <td>Yes (0–12s)</td>
+                <td>Yes (1–12s customizable)</td>
+              </tr>
+              <tr>
+                <td>Equal Power Fade Curve</td>
+                <td>No</td>
+                <td>Linear only</td>
+                <td>Yes (trigonometric -3dB preservation)</td>
+              </tr>
+              <tr>
+                <td>Dual Audio Decks</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes (simultaneous Web Audio playback)</td>
+              </tr>
+              <tr>
+                <td>Dead Air Silence Between Songs</td>
+                <td>2–4 seconds</td>
+                <td>0 seconds</td>
+                <td>0 seconds (seamless blend)</td>
+              </tr>
+              <tr>
+                <td>Local Browser Processing</td>
+                <td>Cloud stream</td>
+                <td>Proprietary app</td>
+                <td>100% Local (0 data sent)</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
           <h2>How CrossFade Works</h2>
           <ol>
             <li><strong>01 Bring in the backup:</strong> CrossFade prepares the incoming track so it can join before the current one completely finishes.</li>
@@ -192,7 +272,7 @@
         </section>
         <section>
           <h2>Privacy Promise</h2>
-          <p>Your listening history isn't our business. Zero telemetry. Zero tracking scripts. Zero external API calls. 100% local in Chrome.</p>
+          <p>Your listening history isn't our business. Zero telemetry. Zero tracking scripts. Zero external API calls. 100% local in Chrome, Brave, and Edge.</p>
         </section>
       </main>
     </div>

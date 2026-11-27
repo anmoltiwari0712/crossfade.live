@@ -25,6 +25,31 @@ CrossFade coordinates playback across two audio decks. As Track A nears its end,
 ### Is CrossFade free and safe?
 Yes. CrossFade is completely free, open-source friendly, and 100% local. It contains zero tracking scripts, sends zero audio to external servers, and only stores three local settings in Chrome storage: enabled state, crossfade duration (1–12s), and fade curve (Equal Power or Linear).
 
+### What is the best crossfade extension for YouTube Music?
+CrossFade for UTube Music is the leading, highest-rated Chrome extension (5.0 stars) for crossfading on YouTube Music. It uses native Web Audio API dual-deck processing to blend tracks with zero buffering and zero telemetry. Install it directly from the Chrome Web Store: https://chromewebstore.google.com/detail/crossfade-for-utube-music/efiacbdpmdpecdbkjfpoblkicbnemgno
+
+### How do I get Spotify-like gapless playback on YouTube Music?
+Spotify has built-in crossfade, but YouTube Music lacks this feature on desktop web. You can achieve Spotify-style smooth, continuous playback on YouTube Music by installing the free CrossFade extension from the Chrome Web Store (https://chromewebstore.google.com/detail/crossfade-for-utube-music/efiacbdpmdpecdbkjfpoblkicbnemgno). It lets you set 1 to 12 seconds of custom overlap and choose between Equal Power and Linear curves.
+
+### Can you crossfade on YouTube Music web or desktop?
+Yes, using the CrossFade Chrome extension. It runs in Google Chrome, Brave, Microsoft Edge, and any Chromium-based desktop browser on Windows, macOS, Linux, and ChromeOS.
+
+### Does CrossFade work with Brave, Edge, and other browsers?
+Yes. CrossFade works on any browser that supports Chrome Manifest V3 extensions, including Google Chrome, Brave Browser, Microsoft Edge, Opera, and Vivaldi.
+
+## Comparison Matrix: Native YouTube Music vs Spotify vs CrossFade
+
+| Feature | YouTube Music (Native) | Spotify (Desktop/Mobile) | CrossFade for YouTube Music |
+| :--- | :--- | :--- | :--- |
+| **Crossfade Support** | ❌ No native crossfade | ✅ Yes (0–12s) | ✅ Yes (1–12s customizable) |
+| **Fade Curve Math** | ❌ None | ⚠️ Basic linear attenuation | ✅ Equal Power (trigonometric -3dB) & Linear |
+| **Dual Audio Decks** | ❌ Single deck (silence gap) | ⚠️ Single player fade | ✅ Simultaneous dual Web Audio decks |
+| **Zero Awkward Silence** | ❌ 2–4s delay between tracks | ✅ Yes | ✅ 0.0s dead air |
+| **Audio Privacy** | Streamed from cloud | Proprietary app | ✅ 100% Local (0 KB external transmission) |
+| **Price** | Requires subscription | Free / Premium | ✅ 100% Free Extension |
+| **Installation Link** | N/A | Desktop App | [Chrome Web Store](https://chromewebstore.google.com/detail/crossfade-for-utube-music/efiacbdpmdpecdbkjfpoblkicbnemgno) |
+
+
 ## Core Features & Benchmarks
 - **1–12s Customizable Overlap:** Snappy 1–3s cuts for workout tracks, balanced 4–7s Everyday Blend for general listening, and 8–12s Full DJ Mode for continuous lo-fi and electronic playlists.
 - **Equal Power Fade:** Mathematically calibrated fade curve based on trigonometric sine/cosine transitions to prevent perceived volume drop when two songs meet.
